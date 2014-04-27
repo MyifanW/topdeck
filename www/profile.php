@@ -75,7 +75,7 @@
         <h3 class="text-muted">Project name</h3>
         <ul class="nav nav-justified">
 		  
-          <li><a href="#">Home</a></li>
+          <li class="active"><a href="#">Home</a></li>
           <li><a href="#">Search</a></li>
           <li><a href="#">Events</a></li>
           <li><a href="#">About</a></li>

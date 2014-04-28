@@ -44,114 +44,118 @@
     <![endif]-->
 	
 	
-	<script>
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.open("GET","cards.xml",false);
-xmlhttp.send();
-xmlDoc=xmlhttp.responseXML; 
+<script>
 
-//document.write("<table border='1'>");
-var x=xmlDoc.getElementsByTagName("card");
-function colorSort(){
+function cardSearch(){
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}else{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
 	
-	var radios = document.getElementsByName('optionsRadios');
+	xmlhttp.open("GET","cards.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML; 
+	var x=xmlDoc.getElementsByTagName("card");
+	
 	var newHTML = "<table border='1'>";
+	var color = null;
+	var name = null;
+	var manaCost = null;
+	var type = null;
+		
+	var x=xmlDoc.getElementsByTagName("card");
+	var radios = document.getElementsByName('optionsRadios');
 	for (var i = 0, length = radios.length; i < length; i++) {
 		if (radios[i].checked) {
 			// do whatever you want with the checked radio
-			var color = radios[i].value;
+			color = radios[i].value;
 	
 			// only one radio can be logically checked, don't check the rest
 			break;
 		}
 	}
-	for (i=0;i<1000;i++){ 
-		var el = x[i].getElementsByTagName("color")[0];
-		if (el == null) {
-			if(color == "colorless"){
-			var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-			newHTML+="<tr><td>";
-			newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-			newHTML+="</td><td>";
-			newHTML+="<img src="+urlString+" alt=\"\">";
-			newHTML+="</td></tr>";
-			}
-		}else {
-			if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
-				el = x[i].getElementsByTagName("color")[1];
-				if (el == null) {
+	if(color == null && type == null && manaCost == null && name == null){
+	
+	}else{
+		for (i=0;i<1000;i++){ 
+			if(color != null){
+				var el = x[i].getElementsByTagName("color")[0];
+				if (el == null){
+					if(color == "colorless"){
 					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
 					newHTML+="<tr><td>";
 					newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
 					newHTML+="</td><td>";
 					newHTML+="<img src="+urlString+" alt=\"\">";
 					newHTML+="</td></tr>";
-				}else {				
-					//it's multicolored do nothing
+					continue;
+					}
+				}else {
+					if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
+						el = x[i].getElementsByTagName("color")[1];
+						if (el == null) {
+							var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+							newHTML+="<tr><td>";
+							newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+							newHTML+="</td><td>";
+							newHTML+="<img src="+urlString+" alt=\"\">";
+							newHTML+="</td></tr>";
+							continue;
+						}else {				
+						//it's multicolored do nothing
+						}
+					}
 				}
 			}
+			if(name != null){
+				if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
+						var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+						document.write("<tr><td>");
+						document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+						document.write("</td><td>");
+						document.write("<img src="+urlString+" alt=\"\">");
+						document.write("</td></tr>");
+						continue;					
+				}	
+			}
+			if(manaCost != null){
+				if(manaCost == x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue){
+						var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+						document.write("<tr><td>");
+						document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+						document.write("</td><td>");
+						document.write("<img src="+urlString+" alt=\"\">");
+						document.write("</td></tr>");
+					
+				}	
+			}
+			if(type != null){
+				if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue){
+						var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+						document.write("<tr><td>");
+						document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+						document.write("</td><td>");
+						document.write("<img src="+urlString+" alt=\"\">");
+						document.write("</td></tr>");
+					
+				}	
+			}
+		
+			
+			
+			
+		
 		}
-		
-		
-		
-	
 	}
 	newHTML+="</table>";
 	document.getElementById("middleSquare").innerHTML = newHTML;
-}
-/*
-function nameSort(name){
-	for (i=0;i<10000;i++){ 
-		if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
-	}
-	document.write("</table>");
+	
+	
+	
+	
 }
 
-function manaCostSort(manaCost){
-	for (i=0;i<10000;i++){ 
-		if(manaCost == x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
-	}
-	document.write("</table>");
-}
-
-function typeSort(type){
-	for (i=0;i<10000;i++){ 
-		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
-	}
-	document.write("</table>");
-}
-*/
 
 </script>
   </head>
@@ -224,7 +228,7 @@ function typeSort(type){
 			Colorless
 		</label>
 		
-		<button onclick=colorSort()>Search</button>
+		<button onclick=cardSearch()>Search</button>
 		
 
 		

@@ -208,6 +208,7 @@ body {
   background-color: #dceaf4;
   margin: 0 auto;
   width: 70%;
+  overflow: auto;
 }
 .mini-layout .search-body {
   background-color: #dceaf4;

@@ -57,12 +57,12 @@ xmlhttp.open("GET","cards.xml",false);
 xmlhttp.send();
 xmlDoc=xmlhttp.responseXML; 
 
-document.write("<table border='1'>");
+//document.write("<table border='1'>");
 var x=xmlDoc.getElementsByTagName("card");
 function colorSort(){
 	
 	var radios = document.getElementsByName('optionsRadios');
-
+	var newHTML = "<table border='1'>";
 	for (var i = 0, length = radios.length; i < length; i++) {
 		if (radios[i].checked) {
 			// do whatever you want with the checked radio
@@ -77,22 +77,22 @@ function colorSort(){
 		if (el == null) {
 			if(color == "colorless"){
 			var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-			document.write("<tr><td>");
-			document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-			document.write("</td><td>");
-			document.write("<img src="+urlString+" alt=\"\">");
-			document.write("</td></tr>");
+			newHTML+="<tr><td>";
+			newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+			newHTML+="</td><td>";
+			newHTML+="<img src="+urlString+" alt=\"\">";
+			newHTML+="</td></tr>";
 			}
 		}else {
 			if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
 				el = x[i].getElementsByTagName("color")[1];
 				if (el == null) {
 					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
+					newHTML+="<tr><td>";
+					newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+					newHTML+="</td><td>";
+					newHTML+="<img src="+urlString+" alt=\"\">";
+					newHTML+="</td></tr>";
 				}else {				
 					//it's multicolored do nothing
 				}
@@ -103,9 +103,10 @@ function colorSort(){
 		
 	
 	}
-	document.write("</table>");
+	newHTML+="</table>";
+	document.getElementById("middleSquare").innerHTML = newHTML;
 }
-
+/*
 function nameSort(name){
 	for (i=0;i<10000;i++){ 
 		if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
@@ -150,7 +151,7 @@ function typeSort(type){
 	}
 	document.write("</table>");
 }
-
+*/
 
 </script>
   </head>
@@ -223,7 +224,7 @@ function typeSort(type){
 			Colorless
 		</label>
 		
-		<button onclick=colorSort(this.value)>Search</button>
+		<button onclick=colorSort()>Search</button>
 		
 
 		

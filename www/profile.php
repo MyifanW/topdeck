@@ -42,6 +42,117 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	
+	<script>
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","cards.xml",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML; 
+
+document.write("<table border='1'>");
+var x=xmlDoc.getElementsByTagName("card");
+function colorSort(){
+	
+	var radios = document.getElementsByName('optionsRadios');
+
+	for (var i = 0, length = radios.length; i < length; i++) {
+		if (radios[i].checked) {
+			// do whatever you want with the checked radio
+			var color = radios[i].value;
+	
+			// only one radio can be logically checked, don't check the rest
+			break;
+		}
+	}
+	for (i=0;i<1000;i++){ 
+		var el = x[i].getElementsByTagName("color")[0];
+		if (el == null) {
+			if(color == "colorless"){
+			var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+			document.write("<tr><td>");
+			document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+			document.write("</td><td>");
+			document.write("<img src="+urlString+" alt=\"\">");
+			document.write("</td></tr>");
+			}
+		}else {
+			if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
+				el = x[i].getElementsByTagName("color")[1];
+				if (el == null) {
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				}else {				
+					//it's multicolored do nothing
+				}
+			}
+		}
+		
+		
+		
+	
+	}
+	document.write("</table>");
+}
+
+function nameSort(name){
+	for (i=0;i<10000;i++){ 
+		if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				
+		}	
+	}
+	document.write("</table>");
+}
+
+function manaCostSort(manaCost){
+	for (i=0;i<10000;i++){ 
+		if(manaCost == x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue){
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				
+		}	
+	}
+	document.write("</table>");
+}
+
+function typeSort(type){
+	for (i=0;i<10000;i++){ 
+		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue){
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				
+		}	
+	}
+	document.write("</table>");
+}
+
+
+</script>
   </head>
 
   <body>
@@ -83,39 +194,47 @@
 		<div class="mini-layout-sidebar">
 		
 		<label class="radio">
-			<input type="radio" name="optionsRadios" id="RedButton" value="option1" checked>
+			<input type="radio" name="optionsRadios" id="RedButton" value="R" checked>
 			Red
 		</label>
 		
 		<label class="radio">
-			<input type="radio" name="optionsRadios" id="BlueButton" value="option1" checked>
+			<input type="radio" name="optionsRadios" id="BlueButton" value="U" checked>
 			Blue
 		</label>
 		
 		<label class="radio">
-			<input type="radio" name="optionsRadios" id="GreenButton" value="option1" checked>
+			<input type="radio" name="optionsRadios" id="GreenButton" value="G" checked>
 			Green
 		</label>
 		
 		<label class="radio">
-			<input type="radio" name="optionsRadios" id="WhiteButton" value="option1" checked>
+			<input type="radio" name="optionsRadios" id="WhiteButton" value="W" checked>
 			White
 		</label>
 		
 		<label class="radio">
-			<input type="radio" name="optionsRadios" id="BlackButton" value="option1" checked>
+			<input type="radio" name="optionsRadios" id="BlackButton" value="B" checked>
 			Black
 		</label>
 		
-		<button onclick="myFunction()">Search</button>
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="RedButton" value="colorless" checked>
+			Colorless
+		</label>
+		
+		<button onclick=colorSort(this.value)>Search</button>
 		
 
 		
 		</div>
-        <div class="mini-layout-body">
+        <div id ="middleSquare" class="mini-layout-body">
 		</div>
 		<div class="mini-layout-sidebar-right"></div>
 	</div>
+	
+	
+
 </body>
 	
 </div>

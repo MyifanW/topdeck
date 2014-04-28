@@ -60,7 +60,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">TopDeck Traders</a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" height="40" width="400"></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -72,7 +72,6 @@
     </div>
 
 	<div class="masthead">
-        <h3 class="text-muted">TopDeck Traders</h3>
         <ul class="nav nav-justified">
 		  
           <li class="active"><a href="#">Profile</a></li>

@@ -55,38 +55,65 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">TopDeck Traders</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </div>
 
 	<div class="masthead">
-        <h3 class="text-muted">Project name</h3>
+        <h3 class="text-muted">TopDeck Traders</h3>
         <ul class="nav nav-justified">
 		  
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Search</a></li>
-          <li><a href="#">Events</a></li>
+          <li class="active"><a href="#">Profile</a></li>
+          <li><a href="#">Search Traders</a></li>
+          <li><a href="#">Search Events</a></li>
           <li><a href="#">About</a></li>
         </ul>
     </div>
 	
 	
 <body>
-	<div class="mini-layout fluid">
-		<div class="mini-layout-sidebar"></div>
-        <div class="mini-layout-body"></div>
+<div class="mini-layout fluid">
+		<div class="mini-layout-sidebar">
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="RedButton" value="option1" checked>
+			Red
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="BlueButton" value="option1" checked>
+			Blue
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="GreenButton" value="option1" checked>
+			Green
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="WhiteButton" value="option1" checked>
+			White
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="BlackButton" value="option1" checked>
+			Black
+		</label>
+		
+		<button onclick="myFunction()">Search</button>
+		
+
+		
+		</div>
+        <div class="mini-layout-body">
+		</div>
 		<div class="mini-layout-sidebar-right"></div>
 	</div>
 </body>

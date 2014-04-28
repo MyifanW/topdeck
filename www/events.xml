@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- db version: 129201464622 AM-->
+<!-- HQ Images Provided by the CCGHQ team located at http://www.slightlymagic.net/forum/ -->
+<!-- HQ Image Hosting provided by http://mtgimage.com/ -->
+<cockatrice_carddatabase version="2">
+	<event>
+		<name>Dream Wizards</name>
+		<format>Modern</format>
+		<type>Friday Night Magic</type>
+		<location mapPic="" address="11772 Parklawn Dr" city="Rockville" zip="20852">Maryland</location>
+		<dateStart>5/27/14</dateStart>
+		<dateEnd>5/27/14</dateEnd>
+		<timeStart>11AM</timeStart>
+		<description>Play today and earn 10 points at our Friday Night Magic event!</description>
+	</event>
+	
+	<event>
+		<name>Big Planet Comics</name>
+		<format>Modern</format>
+		<type>Pro Tour Qualifier</type>
+		<location mapPic="" address="7315 Baltimore Ave" city="College Park" zip="20740">Maryland</location>
+		<dateStart>10/11/14</dateStart>
+		<dateEnd>10/11/14</dateEnd>
+		<timeStart>10AM</timeStart>
+		<description>Come and get your invite for the Grand Prix!</description>
+	</event>
+	
+	<event>
+		<name>Camelot</name>
+		<format>Sealed Deck</format>
+		<type>Grand Prix</type>
+		<location mapPic="" address="407 West Eldorado Parkway Suite 6" city="Little Elm" zip="75068">Texas</location>
+		<dateStart>7/5/14</dateStart>
+		<dateEnd>7/6/14</dateEnd>
+		<timeStart>11AM</timeStart>
+		<description>Come and show your skill at this Grand Prix tournament!</description>
+	</event>
+	
+	<event>
+		<name>Insane Comics</name>
+		<format>Sealed Deck</format>
+		<type>Magic Game Day</type>
+		<location mapPic="" address="5201 S. Colony Blvd. Ste 160" city="The Colony" zip="75056">Texas</location>
+		<dateStart>8/10/14</dateStart>
+		<dateEnd>8/10/14</dateEnd>
+		<timeStart>11AM</timeStart>
+		<description>Come and play Magic during magic game day and get prizes</description>
+	</event>
+	
+	<event>
+		<name>Dream Wizards</name>
+		<format>Standard</format>
+		<type>Magic Game Day</type>
+		<location mapPic="" address="11772 Parklawn Dr" city="Rockville" zip="20852">Maryland</location>
+		<dateStart>9/25/14</dateStart>
+		<dateEnd>9/25/14</dateEnd>
+		<timeStart>11AM</timeStart>
+		<description>Come and play Magic during magic game day and get prizes</description>
+	</event>
+	
+	<event>
+		<name>Comic Asylum</name>
+		<format>Standard</format>
+		<type>Grand Prix</type>
+		<location mapPic="" address="905 N Jupiter Rd #170" city="Richardson" zip="75081">Texas</location>
+		<dateStart>5/1/14</dateStart>
+		<dateEnd>5/2/14</dateEnd>
+		<timeStart>10AM</timeStart>
+		<description>Come and show your skill at this Grand Prix tournament!</description>
+	</event>
+	
+	<event>
+		<name>Urband Legends Comics</name>
+		<format>2 HG Sealed</format>
+		<type>Pro Tour Qualifier</type>
+		<location mapPic="" address="3501 Gus Thomasson Rd Ste 51" city="Mesquite" zip="75150">Texas</location>
+		<dateStart>9/11/14</dateStart>
+		<dateEnd>9/11/14</dateEnd>
+		<timeStart>11AM</timeStart>
+		<description>Come and get your invite for the Grand Prix!</description>
+	</event>
+	
+	<event>
+		<name>Big Planet Comics</name>
+		<format>2 HG Sealed</format>
+		<type>Grand Prix</type>
+		<location mapPic="" address="7315 Baltimore Ave" city="College Park" zip="20740">Maryland</location>
+		<dateStart>10/5/14</dateStart>
+		<dateEnd>10/8/14</dateEnd>
+		<timeStart>8AM</timeStart>
+		<description>Come and show your skill at this Grand Prix tournament!</description>
+	</event>
+	
+	<event>
+		<name>Game Master</name>
+		<format>Legacy</format>
+		<type>Casual Magic Event</type>
+		<location mapPic="" address="5111 Rowlett Rd" city="Rowlett" zip="75088">Texas</location>
+		<dateStart>4/30/14</dateStart>
+		<dateEnd>4/30/14</dateEnd>
+		<timeStart>2PM</timeStart>
+		<description>Come and play Magic during our casual magic event and get prizes</description>
+	</event>
+	
+	<event>
+		<name>Comic Asylum</name>
+		<format>Legacy</format>
+		<type>Friday Night Magic</type>
+		<location mapPic="" address="905 N Jupiter Rd #170" city="Richardson" zip="75081">Texas</location>
+		<dateStart>12/5/14</dateStart>
+		<dateEnd>12/5/14</dateEnd>
+		<timeStart>8PM</timeStart>
+		<description>Play today and earn 10 points at our Friday Night Magic event!</description>
+	</event>
+	
+	<event>
+		<name>Madness Games and Comics</name>
+		<format>Booster Draft</format>
+		<type>Magic Game Day</type>
+		<location mapPic="" address="3000 Custer Rd Ste 310" city="Plano" zip="75075">Texas</location>
+		<dateStart>12/12/14</dateStart>
+		<dateEnd>12/12/14</dateEnd>
+		<timeStart>2PM</timeStart>
+		<description>Come and play Magic during magic game day and get prizes</description>
+	</event>
+	
+	<event>
+		<name>Collected Plano</name>
+		<format>Booster Draft</format>
+		<type>Friday Night Magic</type>
+		<location mapPic="" address="3100 Independence Pkwy Ste 318" city="Plano" zip="75075">Texas</location>
+		<dateStart>11/14/14</dateStart>
+		<dateEnd>11/14/14</dateEnd>
+		<timeStart>9PM</timeStart>
+		<description>Play today and earn 10 points at our Friday Night Magic event!</description>
+	</event>
+	
+</cockatrice_carddatabase>

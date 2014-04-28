@@ -157,7 +157,7 @@ function typeSort(type){
   </head>
 
   <body>
-
+	
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -207,6 +207,43 @@ function typeSort(type){
 			<option value="artifact">artifact</option>
 			<option value="enchantment">enchantment</option>
 		</select>
+		
+		<!-- checkboxes -->
+		<label class="checkbox">
+			<input type="checkbox" id="RedBox" value="Red">
+			Red
+		</label>
+		
+		<label class="checkbox">
+			<input type="checkbox" id="Bluebox" value="Blue">
+			Blue
+		</label>
+		
+		<label class="checkbox">
+			<input type="checkbox" id="GreenBox" value="Green">
+			Green
+		</label>
+		
+		<label class="checkbox">
+			<input type="checkbox" id="WhiteBox" value="White">
+			White
+		</label>
+		
+		<label class="checkbox">
+			<input type="checkbox" id="BlackBox" value="Black">
+			Black
+		</label>
+		
+		<label class="checkbox">
+			<input type="checkbox" id="ColorlessBox" value="Colorless">
+			Colorless
+		</label>
+		
+		
+		<!-- end checkboxes -->
+		
+		
+		
 		<label class="radio">
 			<input type="radio" name="optionsRadios" id="RedButton" value="R" checked>
 			Red

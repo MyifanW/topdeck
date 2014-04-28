@@ -65,7 +65,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="#">My Binder</a></li>
           </ul>
         </div>
       </div>
@@ -74,7 +74,7 @@
 	<div class="masthead">
         <ul class="nav nav-justified">
 		  
-          <li class="active"><a href="#">My Binder</a></li>
+          <li class="active"><a href="#">Profile</a></li>
           <li><a href="#">Search Traders</a></li>
           <li><a href="#">Search Events</a></li>
           <li><a href="#">About</a></li>
@@ -83,6 +83,10 @@
 	
 	
 <body>
+	<div class="mini-layout fluid">
+		<div class="mini-layout-sidebar"></div>
+        <div class="search-body"></div>
+	</div>
 </body>
 	
 </div>

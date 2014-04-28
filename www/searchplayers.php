@@ -45,6 +45,11 @@
 	
 	<script type="text/javascript">
 	<!-- put yo scripts here-->
+	function SearchFun() { 
+        if(document.getElementById('players').style.display=='none') { 
+            document.getElementById('players').style.display='block'; 
+        } 
+    } 
 	</script>
 
   </head>
@@ -74,8 +79,8 @@
 	<div class="masthead">
         <ul class="nav nav-justified">
 		  
-          <li class="active"><a href="#">Profile</a></li>
-          <li><a href="#">Search Traders</a></li>
+          <li><a href="#">Profile</a></li>
+          <li class="active"><a href="#">Search Traders</a></li>
           <li><a href="#">Search Events</a></li>
           <li><a href="#">About</a></li>
         </ul>
@@ -84,8 +89,59 @@
 	
 <body>
 	<div class="mini-layout fluid">
-		<div class="mini-layout-sidebar"></div>
-        <div class="search-body"></div>
+		<div class="mini-layout-sidebar">
+		<!--search players using options-->
+		</br>
+		Search for players with the card you want.
+		</br>
+			<div class="table-responsive">
+            <table class="table table-hover">
+				<tr>
+					<td style="width:50%">Card:</td>
+					<td><input type="text" name="FirstName" value="Blue-eyes white Dragon"></td>		
+				</tr>
+				<tr>
+					<td style="width:50%">Max Miles Away:</td>
+					<td><input type="text" name="LastName" value="5"></td>	
+				</tr>
+			</table>
+			</div>
+			<button onclick="SearchFun()">Search</button>
+		</div>
+        <div class="search-body">
+			<div class="table-responsive" id = "players" style="display: none">
+            <table class="table table-hover">
+				<tr>
+					<td style="width:30%">
+					Profile Picture
+					
+					</td>
+					<td>
+						</br>
+						Victor
+						</br>
+						5 stars
+						</br>
+						asking price
+					</td>		
+				</tr>
+				<tr>
+					<td style="width:30%">
+					Profile Picture
+					
+					</td>
+					<td>
+						</br>
+						Jojo
+						</br>
+						4 stars
+						</br>
+						asking price
+					</td>		
+				</tr>
+			</table>
+			</div>
+		</div>
 	</div>
 </body>
 	

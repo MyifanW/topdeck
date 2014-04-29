@@ -242,6 +242,38 @@ function typeSort(type){
 		
 		<!-- end checkboxes -->
 		
+		
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="RedButton" value="R" checked>
+			Red
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="BlueButton" value="U" checked>
+			Blue
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="GreenButton" value="G" checked>
+			Green
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="WhiteButton" value="W" checked>
+			White
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="BlackButton" value="B" checked>
+			Black
+		</label>
+		
+		<label class="radio">
+			<input type="radio" name="optionsRadios" id="RedButton" value="colorless" checked>
+			Colorless
+		</label>
+		
 		<button onclick=colorSort()>Search</button>
 		
 

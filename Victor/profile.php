@@ -95,10 +95,10 @@
  		for (i=0;i<1000;i++){ //change 1000 to however many cards you want to search through in xml
  			if(colorCheck() && typeCheck() && nameCheck()){ 
  				var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
- 				newHTML+="<tr><td align=\"center\">";
+ 				newHTML+="<tr><td align=\"center\">"+"<div style=\"padding-left:100px;\">";
  				newHTML+="</br></br>";
- 				newHTML+="<img src="+urlString+" alt=\"\">";
-				newHTML+="</td><td align=\"left\">";
+ 				newHTML+="<img src="+urlString+"alt=\"\">";
+				newHTML+="</td></div><td align=\"left\">"+"<div style=\"padding-left:100px;\">";
  				newHTML+="<b>Name:</b>  "+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
 				newHTML+="</br></br>";
 				newHTML+="<b>Set:</b>  "+x[i].getElementsByTagName("set")[0].childNodes[0].nodeValue;
@@ -109,7 +109,7 @@
 				newHTML+="</br></br>";
 				newHTML+="<b>Card Text:</b>  "+x[i].getElementsByTagName("text")[0].childNodes[0].nodeValue;
  				newHTML+="</br></br>";
- 				newHTML+="</td></tr>";
+ 				newHTML+="</div></td></tr>";
  				continue;
  			}
  		}
@@ -192,7 +192,7 @@
 	
 <body>
 <div class="mini-layout fluid">
-		<div class="mini-layout-sidebar">
+		<div  class="mini-layout-sidebar">
 		
 		 
 

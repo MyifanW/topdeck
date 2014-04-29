@@ -46,118 +46,107 @@
 	
 <script>
 
-function cardSearch(){
-	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}else{// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	
-	xmlhttp.open("GET","cards.xml",false);
-	xmlhttp.send();
+ function cardSearch(){
+ 
+ 	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+ 		xmlhttp=new XMLHttpRequest();
+ 	}else{// code for IE6, IE5
+ 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+ 	}
+ 	xmlhttp.open("GET","cards.xml",false);
+ 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML; 
-	var x=xmlDoc.getElementsByTagName("card");
-	
-	var newHTML = "<table border='1'>";
-	var color = null;
-	var name = null;
-	var manaCost = null;
-	var type = null;
-		
-	var x=xmlDoc.getElementsByTagName("card");
-	var radios = document.getElementsByName('optionsRadios');
-	for (var i = 0, length = radios.length; i < length; i++) {
-		if (radios[i].checked) {
-			// do whatever you want with the checked radio
-			color = radios[i].value;
-	
-			// only one radio can be logically checked, don't check the rest
-			break;
-		}
-	}
-	if(color == null && type == null && manaCost == null && name == null){
-	
+ 	var x=xmlDoc.getElementsByTagName("card");
+ 	
+ 	var radios = document.getElementsByName('optionsRadios');
+ 	var newHTML = "<table border='1'>";
+ 	var color = null;
+ 	var name = "";
+ 	var type = "None";
+ 		
+ 	var x=xmlDoc.getElementsByTagName("card");
+ 	
+ 	//get Check Box info
+		//figure out how to do multicolor
+	if(document.getElementById('RedBox').checked){
+		color = "R";
+	}else if(document.getElementById('BlackBox').checked){
+		color = "B";
+	}else if(document.getElementById('BlueBox').checked){
+		color = "U";
+	}else if(document.getElementById('GreenBox').checked){
+		color = "G";
+	}else if(document.getElementById('WhiteBox').checked){
+		color = "W";
 	}else{
-		for (i=0;i<1000;i++){ 
-			if(color != null){
-				var el = x[i].getElementsByTagName("color")[0];
-				if (el == null){
-					if(color == "colorless"){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					newHTML+="<tr><td>";
-					newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-					newHTML+="</td><td>";
-					newHTML+="<img src="+urlString+" alt=\"\">";
-					newHTML+="</td></tr>";
-					continue;
-					}
-				}else {
-					if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
-						el = x[i].getElementsByTagName("color")[1];
-						if (el == null) {
-							var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-							newHTML+="<tr><td>";
-							newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-							newHTML+="</td><td>";
-							newHTML+="<img src="+urlString+" alt=\"\">";
-							newHTML+="</td></tr>";
-							continue;
-						}else {				
-						//it's multicolored do nothing
-						}
-					}
-				}
-			}
-			if(name != null){
-				if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
-						var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-						document.write("<tr><td>");
-						document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-						document.write("</td><td>");
-						document.write("<img src="+urlString+" alt=\"\">");
-						document.write("</td></tr>");
-						continue;					
-				}	
-			}
-			if(manaCost != null){
-				if(manaCost == x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue){
-						var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-						document.write("<tr><td>");
-						document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-						document.write("</td><td>");
-						document.write("<img src="+urlString+" alt=\"\">");
-						document.write("</td></tr>");
-					
-				}	
-			}
-			if(type != null){
-				if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue){
-						var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-						document.write("<tr><td>");
-						document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-						document.write("</td><td>");
-						document.write("<img src="+urlString+" alt=\"\">");
-						document.write("</td></tr>");
-					
-				}	
-			}
-		
-			
-			
-			
-		
-		}
+		color = "colorless";
 	}
-	newHTML+="</table>";
-	document.getElementById("middleSquare").innerHTML = newHTML;
+ 
+ 	//get drop down info
 	
+ 	var dropdowns = document.getElementById("typeDropDown");
+ 	type = dropdowns.options[dropdowns.selectedIndex].value;
+ 	
+ 	//get name textBox info
+ 	name = document.getElementById("cardName").value;
+ 	
+ 	if(color == null && type == "None" && name == null){
+ 	
+ 	}else{
+ 		for (i=0;i<1000;i++){ //change 1000 to however many cards you want to search through in xml
+ 			if(colorCheck() && typeCheck() && nameCheck()){ 
+ 				var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+ 				newHTML+="<tr><td align=\"center\">";
+ 				newHTML+="</br></br>";
+ 				newHTML+="<img src="+urlString+" alt=\"\">";
+ 				newHTML+="</br></br>";
+ 				newHTML+="<b>"+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue+"</b>";
+ 				newHTML+="</br></br>";
+ 				newHTML+="</td></tr>";
+ 				continue;
+ 			}
+ 		}
+ 	}
+ 	newHTML+="</table>";
+ 	document.getElementById("middleSquare").innerHTML = newHTML;
+ 	//technically the end of cardSearch function;
+ 	
+ 	function colorCheck(){
+ 		if(color != null){
+ 			var el = x[i].getElementsByTagName("color")[0];
+ 			if (el == null){  //colorless cards only
+ 				if(color == "colorless"){  
+ 					return true;
+ 				}
+ 			}else {  //colored cards
+ 				if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
+ 					el = x[i].getElementsByTagName("color")[1];
+ 					if (el == null) {
+ 							return true;
+ 					}
+ 				}
+ 			}
+ 		}else{
+ 			return true;
+ 		}
+ 		return false;
+ 	}
 	
+	function typeCheck(){
+		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue || type == "None"){
+			return true;
+		}
+		return false;
+	}
 	
-	
-}
-
-
-</script>
+	function nameCheck(){
+		if(name == "" || name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
+			return true;
+		}
+		return false;
+	}
+  }
+  </script>
   </head>
 
   <body>
@@ -198,35 +187,53 @@ function cardSearch(){
 <div class="mini-layout fluid">
 		<div class="mini-layout-sidebar">
 		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="RedButton" value="R" checked>
+		 
+
+		<input type="text" id="cardName" placeholder="Name">
+		<br><br>
+		Type : 
+		<select id="typeDropDown">
+			<option value="None">None</option>
+			<option value="Sorcery">Sorcery</option>
+			<option value="Instant">Instant</option>
+			<option value="Creature">Creature</option>
+			<option value="Artifact">Artifact</option>
+			<option value="Enchantment">Enchantment</option>
+		</select>
+		
+		<!-- checkboxes -->
+		<label class="checkbox">
+			<input type="checkbox" id="RedBox" value="Red">
 			Red
 		</label>
 		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="BlueButton" value="U" checked>
+		<label class="checkbox">
+			<input type="checkbox" id="BlueBox" value="Blue">
 			Blue
 		</label>
 		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="GreenButton" value="G" checked>
+		<label class="checkbox">
+			<input type="checkbox" id="GreenBox" value="Green">
 			Green
 		</label>
 		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="WhiteButton" value="W" checked>
+		<label class="checkbox">
+			<input type="checkbox" id="WhiteBox" value="White">
 			White
 		</label>
 		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="BlackButton" value="B" checked>
+		<label class="checkbox">
+			<input type="checkbox" id="BlackBox" value="Black">
 			Black
 		</label>
 		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="RedButton" value="colorless" checked>
+		<label class="checkbox">
+			<input type="checkbox" id="ColorlessBox" value="Colorless">
 			Colorless
 		</label>
+		
+		
+		<!-- end checkboxes -->
 		
 		<button onclick=cardSearch()>Search</button>
 		

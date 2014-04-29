@@ -140,14 +140,16 @@
  	}
 	
 	function typeCheck(){
-		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue || type == "None"){
+		var cardType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+		if(cardType.search(type) != -1 || type == "None"){
 			return true;
 		}
 		return false;
 	}
 	
 	function nameCheck(){
-		if(name == "" || name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
+		var cardName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+		if(name == "" || cardName.search(name) != -1){
 			return true;
 		}
 		return false;

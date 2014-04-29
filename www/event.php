@@ -59,52 +59,6 @@ xmlDoc=xmlhttp.responseXML;
 
 document.write("<table border='1'>");
 var x=xmlDoc.getElementsByTagName("event");
-function colorSort(){
-	
-	var radios = document.getElementsByName('optionsRadios');
-
-	for (var i = 0, length = radios.length; i < length; i++) {
-		if (radios[i].checked) {
-			// do whatever you want with the checked radio
-			var color = radios[i].value;
-	
-			// only one radio can be logically checked, don't check the rest
-			break;
-		}
-	}
-	for (i=0;i<1000;i++){ 
-		var el = x[i].getElementsByTagName("color")[0];
-		if (el == null) {
-			if(color == "colorless"){
-			var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-			document.write("<tr><td>");
-			document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-			document.write("</td><td>");
-			document.write("<img src="+urlString+" alt=\"\">");
-			document.write("</td></tr>");
-			}
-		}else {
-			if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
-				el = x[i].getElementsByTagName("color")[1];
-				if (el == null) {
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				}else {				
-					//it's multicolored do nothing
-				}
-			}
-		}
-		
-		
-		
-	
-	}
-	document.write("</table>");
-}
 
 function nameSort(){
 	var radios = document.getElementsByName('optionsRadios');
@@ -121,48 +75,26 @@ function nameSort(){
 
 	for (i=0;i<14;i++){ 
 		if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
-					//var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					var urlString = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic")+"\"";
+					var urlString2 = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic2")+"\"";
+					var address = "\""+x[i].getElementsByTagName("location")[0].getAttribute("address")+"\"";
+					var city = "\""+x[i].getElementsByTagName("location")[0].getAttribute("city")+"\"";
+					var zip = "\""+x[i].getElementsByTagName("location")[0].getAttribute("zip")+"\"";
+					var state = "\""+x[i].getElementsByTagName("location")[0].childNodes[0].nodeValue+"\"";
 					document.write("<tr><td>");
 					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("<br>");
+					document.write(address);
+					document.write("<br>");
+					document.write(city+", "+state+" "+zip);
 					document.write("</td><td>");
-					//document.write("<img src="+urlString+" alt=\"\">");
+					document.write("<a href="+urlString2+"><img src="+urlString+" alt=\"\"></a>");
 					document.write("</td></tr>");
 				
 		}	
 	}
 	document.write("</table>");
 }
-
-function manaCostSort(manaCost){
-	for (i=0;i<10000;i++){ 
-		if(manaCost == x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
-	}
-	document.write("</table>");
-}
-
-function typeSort(type){
-	for (i=0;i<10000;i++){ 
-		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
-	}
-	document.write("</table>");
-}
-
 
 </script>
   </head>

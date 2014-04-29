@@ -7,7 +7,8 @@
 		<name>Dream Wizards</name>
 		<format>Modern</format>
 		<type>Friday Night Magic</type>
-		<location mapPic="" address="11772 Parklawn Dr" city="Rockville" zip="20852">Maryland</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,m_PMuniAqjVjXN7IojFMKQctLL1CcNNBhmjVfhaybMuZMtHQEdo9DEq84lA4mH8RTNs5gDH7DhxUc7I8RtC3JWHXS2jyOjkj8RA3wzz41mkDk-pjCWMV3AQApbo" 
+		mapPic2="https://www.google.com/maps/place/Dream+Wizards/@39.047954,-77.10194,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x6ac970757d6ca951" address="11772 Parklawn Dr" city="Rockville" zip="20852">Maryland</location>
 		<dateStart>5/27/14</dateStart>
 		<dateEnd>5/27/14</dateEnd>
 		<timeStart>11AM</timeStart>
@@ -18,7 +19,8 @@
 		<name>Big Planet Comics</name>
 		<format>Modern</format>
 		<type>Pro Tour Qualifier</type>
-		<location mapPic="" address="7315 Baltimore Ave" city="College Park" zip="20740">Maryland</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,FxpWCSqjnmUU-9HehCv6tszG7P1aof4rOqfajeLveCs0AYdph121dtcNpzlMYkQ4VTG-R_w2ldfZl-GivbnG3QA4r_BWawwu93tSuMNN9SmXq1iDP5bsJEptglc"
+		mapPic2="https://www.google.com/maps/place/Big+Planet+Comics/@38.980226,-76.937717,17z/data=!3m1!4b1!4m2!3m1!1s0x89b7c6befb4547bd:0xfb137058194ec66b" address="7315 Baltimore Ave" city="College Park" zip="20740">Maryland</location>
 		<dateStart>10/11/14</dateStart>
 		<dateEnd>10/11/14</dateEnd>
 		<timeStart>10AM</timeStart>
@@ -26,10 +28,23 @@
 	</event>
 	
 	<event>
+		<name>Big Planet Comics</name>
+		<format>2 HG Sealed</format>
+		<type>Grand Prix</type>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,FxpWCSqjnmUU-9HehCv6tszG7P1aof4rOqfajeLveCs0AYdph121dtcNpzlMYkQ4VTG-R_w2ldfZl-GivbnG3QA4r_BWawwu93tSuMNN9SmXq1iDP5bsJEptglc"
+		mapPic2="https://www.google.com/maps/place/Big+Planet+Comics/@38.980226,-76.937717,17z/data=!3m1!4b1!4m2!3m1!1s0x89b7c6befb4547bd:0xfb137058194ec66b" address="7315 Baltimore Ave" city="College Park" zip="20740">Maryland</location>
+		<dateStart>10/5/14</dateStart>
+		<dateEnd>10/8/14</dateEnd>
+		<timeStart>8AM</timeStart>
+		<description>Come and show your skill at this Grand Prix tournament!</description>
+	</event>
+	
+	<event>
 		<name>Camelot</name>
 		<format>Sealed Deck</format>
 		<type>Grand Prix</type>
-		<location mapPic="" address="407 West Eldorado Parkway Suite 6" city="Little Elm" zip="75068">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,N3nr244K7BBK62t7nHyu1CqQlvvP8xX79kgZxf6ieUdv4m8xlW6Qbco7K-ia2BN3CZa-GbMBwB9U50vWEvE65xt7DEw_Le-6T0n2HrB-oY4Us3Jeqw"
+		mapPic2="https://www.google.com/maps/place/Camelot/@33.157716,-96.942242,17z/data=!3m1!4b1!4m2!3m1!1s0x864c37357f78d117:0xddbd1fa86079f4b0" address="407 West Eldorado Parkway Suite 6" city="Little Elm" zip="75068">Texas</location>
 		<dateStart>7/5/14</dateStart>
 		<dateEnd>7/6/14</dateEnd>
 		<timeStart>11AM</timeStart>
@@ -40,7 +55,9 @@
 		<name>Insane Comics</name>
 		<format>Sealed Deck</format>
 		<type>Magic Game Day</type>
-		<location mapPic="" address="5201 S. Colony Blvd. Ste 160" city="The Colony" zip="75056">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,bqVn5BdYooqsy7fwXeKKcKl06CF9luv_faEOqzRMMOYyt7La7GMptugP5aHPhkMk4hgqjuPKUFMB_sb_gBfUDMzbI7hVZNHLFoFnXLZSnTe5j5p9sQs"
+		mapPic2="https://www.google.com/maps/place/5201+S+Colony+Blvd/@33.08534,-96.878131,17z/data=!3m1!4b1!4m2!3m1!1s0x864c3ad8a7d1d0cb:0xd0d5f7c0bd3e799a" address="5201 S. Colony Blvd. Ste 160" city="The Colony" zip="75056">Texas</location>
+		<locationMap></locationMap>
 		<dateStart>8/10/14</dateStart>
 		<dateEnd>8/10/14</dateEnd>
 		<timeStart>11AM</timeStart>
@@ -51,7 +68,8 @@
 		<name>Dream Wizards</name>
 		<format>Standard</format>
 		<type>Magic Game Day</type>
-		<location mapPic="" address="11772 Parklawn Dr" city="Rockville" zip="20852">Maryland</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,m_PMuniAqjVjXN7IojFMKQctLL1CcNNBhmjVfhaybMuZMtHQEdo9DEq84lA4mH8RTNs5gDH7DhxUc7I8RtC3JWHXS2jyOjkj8RA3wzz41mkDk-pjCWMV3AQApbo"
+		mapPic2="https://www.google.com/maps/place/Dream+Wizards/@39.047954,-77.10194,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x6ac970757d6ca951" address="11772 Parklawn Dr" city="Rockville" zip="20852">Maryland</location>
 		<dateStart>9/25/14</dateStart>
 		<dateEnd>9/25/14</dateEnd>
 		<timeStart>11AM</timeStart>
@@ -62,7 +80,8 @@
 		<name>Comic Asylum</name>
 		<format>Standard</format>
 		<type>Grand Prix</type>
-		<location mapPic="" address="905 N Jupiter Rd #170" city="Richardson" zip="75081">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,K8aJQF32vIbzIK9oeuJYOMhPqDvQqfyDCVQE4HDeY6DNgdo5Ov60YDC3Gd0hT1tCF9Cz_0SEkXVNup9lP7pPokqni4srEZ7FcR4rmJ9gM5wlweaoPw"
+		mapPic2="https://www.google.com/maps/place/Comic+Asylum/@32.959233,-96.683088,17z/data=!3m1!4b1!4m2!3m1!1s0x864c1e92fe058ebf:0x10ca7693ceaa9379" address="905 N Jupiter Rd #170" city="Richardson" zip="75081">Texas</location>
 		<dateStart>5/1/14</dateStart>
 		<dateEnd>5/2/14</dateEnd>
 		<timeStart>10AM</timeStart>
@@ -70,10 +89,11 @@
 	</event>
 	
 	<event>
-		<name>Urband Legends Comics</name>
+		<name>Urban Legends Comics</name>
 		<format>2 HG Sealed</format>
 		<type>Pro Tour Qualifier</type>
-		<location mapPic="" address="3501 Gus Thomasson Rd Ste 51" city="Mesquite" zip="75150">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,8oV-ofjJ-01hmmtxfCNjYwE6lnOncDwI_2lEEAy1pLpcAD7_tRi3igRgLKnAKz4wo7XgRWlCdod2XUBJIEY9aBLaddOlJKTGj98rPIV_OoUHXiDJlQ"
+		mapPic2="https://www.google.com/maps/place/3501+Gus+Thomasson+Rd+%2351/@32.812642,-96.6359262,17z/data=!3m1!4b1!4m2!3m1!1s0x864ea4275dbffae3:0x810f9d43c8ff5fae" address="3501 Gus Thomasson Rd Ste 51" city="Mesquite" zip="75150">Texas</location>
 		<dateStart>9/11/14</dateStart>
 		<dateEnd>9/11/14</dateEnd>
 		<timeStart>11AM</timeStart>
@@ -81,21 +101,11 @@
 	</event>
 	
 	<event>
-		<name>Big Planet Comics</name>
-		<format>2 HG Sealed</format>
-		<type>Grand Prix</type>
-		<location mapPic="" address="7315 Baltimore Ave" city="College Park" zip="20740">Maryland</location>
-		<dateStart>10/5/14</dateStart>
-		<dateEnd>10/8/14</dateEnd>
-		<timeStart>8AM</timeStart>
-		<description>Come and show your skill at this Grand Prix tournament!</description>
-	</event>
-	
-	<event>
 		<name>Game Master</name>
 		<format>Legacy</format>
 		<type>Casual Magic Event</type>
-		<location mapPic="" address="5111 Rowlett Rd" city="Rowlett" zip="75088">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,a4pSxbftmVvo8tq4zytWtL8iBfWbHYWkpAnh1gbiTgVtDgRBTxHvhnBdE05U-RDj70jijZq31xlSAVQlQI-wz0LuCDvt4P9Q_Ad1p97vFdrYmPR0-NpneWwiONWT0sSTwd3t1_0s6zaVNKxfnOXgqeoFcThRuVTbjYvTI8RKw-OfZ3PMsDLRFGhJLfeKYI4Ig3i359vo7EiXV2Rdh5ggU6NC"
+		mapPic2="https://www.google.com/maps/place/5111+Rowlett+Rd/@32.9061692,-96.5694391,17z/data=!3m1!4b1!4m2!3m1!1s0x864ea8029a1a1205:0x1bca613018eb77b8" address="5111 Rowlett Rd" city="Rowlett" zip="75088">Texas</location>
 		<dateStart>4/30/14</dateStart>
 		<dateEnd>4/30/14</dateEnd>
 		<timeStart>2PM</timeStart>
@@ -106,7 +116,8 @@
 		<name>Comic Asylum</name>
 		<format>Legacy</format>
 		<type>Friday Night Magic</type>
-		<location mapPic="" address="905 N Jupiter Rd #170" city="Richardson" zip="75081">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,K8aJQF32vIbzIK9oeuJYOMhPqDvQqfyDCVQE4HDeY6DNgdo5Ov60YDC3Gd0hT1tCF9Cz_0SEkXVNup9lP7pPokqni4srEZ7FcR4rmJ9gM5wlweaoPw"
+		mapPic2="https://www.google.com/maps/place/Comic+Asylum/@32.959233,-96.683088,17z/data=!3m1!4b1!4m2!3m1!1s0x864c1e92fe058ebf:0x10ca7693ceaa9379" address="905 N Jupiter Rd #170" city="Richardson" zip="75081">Texas</location>
 		<dateStart>12/5/14</dateStart>
 		<dateEnd>12/5/14</dateEnd>
 		<timeStart>8PM</timeStart>
@@ -117,7 +128,8 @@
 		<name>Madness Games and Comics</name>
 		<format>Booster Draft</format>
 		<type>Magic Game Day</type>
-		<location mapPic="" address="3000 Custer Rd Ste 310" city="Plano" zip="75075">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,vF8QddTpZIn35_DHot5VM9IB3lvHazNDUFVWX-n2VMIDPz2RSR0b02svOXqGyn8pTrwWI3LpSuhXMCAnkolvOtskUTp972NqCNuI3eXexwXrT49ZJQ"
+		mapPic2="https://www.google.com/maps/place/Madness+Games+%26+Comics/@33.038488,-96.732394,17z/data=!4m2!3m1!1s0x864c18642107149f:0x7b175fc8b0e00ebc" address="3000 Custer Rd Ste 310" city="Plano" zip="75075">Texas</location>
 		<dateStart>12/12/14</dateStart>
 		<dateEnd>12/12/14</dateEnd>
 		<timeStart>2PM</timeStart>
@@ -128,7 +140,8 @@
 		<name>Collected Plano</name>
 		<format>Booster Draft</format>
 		<type>Friday Night Magic</type>
-		<location mapPic="" address="3100 Independence Pkwy Ste 318" city="Plano" zip="75075">Texas</location>
+		<location mapPic="https://www.google.com/maps/vt/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,fiRCnHGGwh3MpwICxfVf_OAVqU9p6GAVz9Ycsu0-aopKlulhUSAS2royIoa9R4_c-7WnCRyBV95A9RQIJWxlONvqR27GZJzsGa1r45peTevsu68SuA"
+		picMap2="https://www.google.com/maps/place/Collected:+Plano/@33.039031,-96.752637,17z/data=!3m1!4b1!4m2!3m1!1s0x864c2282fff1d769:0xee58d80a06593ce4" address="3100 Independence Pkwy Ste 318" city="Plano" zip="75075">Texas</location>
 		<dateStart>11/14/14</dateStart>
 		<dateEnd>11/14/14</dateEnd>
 		<timeStart>9PM</timeStart>

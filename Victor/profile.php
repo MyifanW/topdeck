@@ -59,7 +59,7 @@
  	var x=xmlDoc.getElementsByTagName("card");
  	
  	var radios = document.getElementsByName('optionsRadios');
- 	var newHTML = "<table border='1'>";
+ 	var newHTML = "<table>";
  	var color = null;
  	var name = "";
  	var type = "None";
@@ -84,8 +84,7 @@
  
  	//get drop down info
 	
- 	var dropdowns = document.getElementById("typeDropDown");
- 	type = dropdowns.options[dropdowns.selectedIndex].value;
+ 	type = document.getElementById("typeDropDown").value;
  	
  	//get name textBox info
  	name = document.getElementById("cardName").value;
@@ -99,8 +98,16 @@
  				newHTML+="<tr><td align=\"center\">";
  				newHTML+="</br></br>";
  				newHTML+="<img src="+urlString+" alt=\"\">";
- 				newHTML+="</br></br>";
- 				newHTML+="<b>"+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue+"</b>";
+				newHTML+="</td><td align=\"left\">";
+ 				newHTML+="<b>Name:</b>  "+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+				newHTML+="</br></br>";
+				newHTML+="<b>Set:</b>  "+x[i].getElementsByTagName("set")[0].childNodes[0].nodeValue;
+				newHTML+="</br></br>";
+				newHTML+="<b>Mana Cost:</b>  "+x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue;
+				newHTML+="</br></br>";
+				newHTML+="<b>Type:</b>  "+x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+				newHTML+="</br></br>";
+				newHTML+="<b>Card Text:</b>  "+x[i].getElementsByTagName("text")[0].childNodes[0].nodeValue;
  				newHTML+="</br></br>";
  				newHTML+="</td></tr>";
  				continue;

@@ -45,113 +45,110 @@
 	
 	
 	<script>
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.open("GET","cards.xml",false);
-xmlhttp.send();
-xmlDoc=xmlhttp.responseXML; 
-
-//document.write("<table border='1'>");
-var x=xmlDoc.getElementsByTagName("card");
-function colorSort(){
+function cardSearch(){
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}else{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
 	
-	var radios = document.getElementsByName('optionsRadios');
+	xmlhttp.open("GET","cards.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML; 
+	var x=xmlDoc.getElementsByTagName("card");
+	
 	var newHTML = "<table border='1'>";
+	var color = null;
+	var name = null;
+	var type = null;
+		
+	var x=xmlDoc.getElementsByTagName("card");
+	
+	//get radio info
+	var radios = document.getElementsByName('optionsRadios');
 	for (var i = 0, length = radios.length; i < length; i++) {
 		if (radios[i].checked) {
 			// do whatever you want with the checked radio
-			var color = radios[i].value;
+			color = radios[i].value;
 	
 			// only one radio can be logically checked, don't check the rest
 			break;
 		}
 	}
-	for (i=0;i<1000;i++){ 
-		var el = x[i].getElementsByTagName("color")[0];
-		if (el == null) {
-			if(color == "colorless"){
-			var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-			newHTML+="<tr><td>";
-			newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-			newHTML+="</td><td>";
-			newHTML+="<img src="+urlString+" alt=\"\">";
-			newHTML+="</td></tr>";
-			}
-		}else {
-			if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
-				el = x[i].getElementsByTagName("color")[1];
-				if (el == null) {
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					newHTML+="<tr><td>";
-					newHTML+=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-					newHTML+="</td><td>";
-					newHTML+="<img src="+urlString+" alt=\"\">";
-					newHTML+="</td></tr>";
-				}else {				
-					//it's multicolored do nothing
-				}
+	
+	//get drop down info
+	var dropdowns = document.getElementById("typeDropDown");
+	type = dropdowns.options[dropdowns.selectedIndex].value;
+	
+	//get name textBox info
+	name = document.getElementById("cardName").value;
+	
+	if(color == null && type == "None" && name == null){
+	
+	}else{
+		for (i=0;i<1000;i++){ //change 1000 to however many cards you want to search through in xml
+			if(colorCheck() && typeCheck() && nameCheck()){ 
+				var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+				newHTML+="<tr><td align=\"center\">";
+				newHTML+="</br></br>";
+				newHTML+="<img src="+urlString+" alt=\"\">";
+				newHTML+="</br></br>";
+				newHTML+="<b>"+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue+"</b>";
+				newHTML+="</br></br>";
+				newHTML+="</td></tr>";
+				continue;
 			}
 		}
-		
-		
-		
-	
 	}
 	newHTML+="</table>";
 	document.getElementById("middleSquare").innerHTML = newHTML;
-}
-/*
-function nameSort(name){
-	for (i=0;i<10000;i++){ 
-		if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
+	//technically the end of cardSearch function;
+	
+	function colorCheck(){
+		if(color != null){
+			var el = x[i].getElementsByTagName("color")[0];
+			if (el == null){  //colorless cards only
+				if(color == "colorless"){  
+					return true;
+				}
+			}else {  //colored cards
+				if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
+					el = x[i].getElementsByTagName("color")[1];
+					if (el == null) {
+							return true;
+					}
+				}
+			}
+		}else{
+			return true;
+		}
+		return false;
 	}
-	document.write("</table>");
+	
+	function typeCheck(){
+		
+		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue || type == "None"){
+			return true;
+		}
+		return false;
+		
+		//need to fix type check for creatures
+	}
+	
+	function nameCheck(){
+		if(name == "" || name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
+			return true;
+		}
+		return false;
+		
+		//make this more indepth, search for sub strings
+	}
+	
+	
 }
 
-function manaCostSort(manaCost){
-	for (i=0;i<10000;i++){ 
-		if(manaCost == x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
-	}
-	document.write("</table>");
-}
 
-function typeSort(type){
-	for (i=0;i<10000;i++){ 
-		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue){
-					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					document.write("<tr><td>");
-					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-					document.write("</td><td>");
-					document.write("<img src="+urlString+" alt=\"\">");
-					document.write("</td></tr>");
-				
-		}	
-	}
-	document.write("</table>");
-}
-*/
+
 
 </script>
   </head>
@@ -201,11 +198,11 @@ function typeSort(type){
 		Type : 
 		<select>
 			<option value="None">none</option>
-			<option value="Sorcery">Sorcery</option>
-			<option value="Instant">Instant</option>
-			<option value="Creature">Creature</option>
-			<option value="Artifact">Artifact</option>
-			<option value="Enchantment">Enchantment</option>
+			<option value="sorcery">sorcery</option>
+			<option value="instant">instant</option>
+			<option value="creature">creature</option>
+			<option value="artifact">artifact</option>
+			<option value="enchantment">enchantment</option>
 		</select>
 		
 		<!-- checkboxes -->
@@ -241,38 +238,6 @@ function typeSort(type){
 		
 		
 		<!-- end checkboxes -->
-		
-		
-		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="RedButton" value="R" checked>
-			Red
-		</label>
-		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="BlueButton" value="U" checked>
-			Blue
-		</label>
-		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="GreenButton" value="G" checked>
-			Green
-		</label>
-		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="WhiteButton" value="W" checked>
-			White
-		</label>
-		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="BlackButton" value="B" checked>
-			Black
-		</label>
-		
-		<label class="radio">
-			<input type="radio" name="optionsRadios" id="RedButton" value="colorless" checked>
-			Colorless
-		</label>
 		
 		<button onclick=colorSort()>Search</button>
 		

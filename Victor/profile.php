@@ -227,11 +227,6 @@
 			Black
 		</label>
 		
-		<label class="checkbox">
-			<input type="checkbox" id="ColorlessBox" value="Colorless">
-			Colorless
-		</label>
-		
 		
 		<!-- end checkboxes -->
 		

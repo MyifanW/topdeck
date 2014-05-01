@@ -49,7 +49,7 @@
 	document.getElementById("rightSquare").innerHTML=decodeURIComponent(string);
   }
  function cardSearch(){
- 
+	document.getElementById("rightSquare").innerHTML="";
  	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
  		xmlhttp=new XMLHttpRequest();
  	}else{// code for IE6, IE5
@@ -80,10 +80,8 @@
 		color = "G";
 	}else if(document.getElementById('WhiteBox').checked){
 		color = "W";
-	}else if(document.getElementById('ColorlessBox').checked){
-		color = "colorless";
 	}else{
-		null;
+		color = "colorless";
 	}
  
  	//get drop down info
@@ -123,9 +121,9 @@
  				prev+="</div></td></tr>";
 				
 				
-				newHTML+="<button type=\"button\" onclick=preview("
+				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=preview("
 				newHTML+="\""+encodeURIComponent(prev)+"\"";
-				newHTML+=")>preview</button>";
+				newHTML+=")>preview</button></div>";
 				newHTML+="</td></tr></div>"
  				continue;
 				
@@ -164,18 +162,15 @@
  		return false;
  	}
 	
-	
 	function typeCheck(){
-		var cardType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
-		if(cardType.search(type) != -1 || type == "None"){
+		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue || type == "None"){
 			return true;
 		}
 		return false;
 	}
 	
 	function nameCheck(){
-		var cardName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-		if(name == "" || cardName.search(name) != -1){
+		if(name == "" || name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
 			return true;
 		}
 		return false;
@@ -260,11 +255,6 @@
 		<label class="checkbox">
 			<input type="checkbox" id="BlackBox" value="Black">
 			Black
-		</label>
-		
-		<label class="checkbox">
-			<input type="checkbox" id="ColorlessBox" value="Black">
-			Colorless
 		</label>
 		
 		

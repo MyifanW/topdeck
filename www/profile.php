@@ -47,7 +47,6 @@
 <script>
 function storeCard(str1){
 	var str = decodeURIComponent(str1);
-	 alert(str);
 	  if (str=="") {
 		document.getElementById("txtHint").innerHTML="";
 		return;
@@ -61,8 +60,8 @@ function storeCard(str1){
 	  }
 	  xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
-	 {
-		  document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+		{
+		  alert(xmlhttp.responseText);
 		}
 	  }
 	  xmlhttp.open("GET","storecard.php?q="+str,true);

@@ -45,11 +45,14 @@
 	
 	
 <script>
-function storeCard(str){
+function storeCard(str1){
+	var str = decodeURIComponent(str1);
+	 alert(str);
 	  if (str=="") {
 		document.getElementById("txtHint").innerHTML="";
 		return;
 	  } 
+	  alert(str);
 	  if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -146,8 +149,9 @@ function storeCard(str){
 				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=preview(";
 				newHTML+="\""+encodeURIComponent(prev)+"\"";
 				newHTML+=")>preview</button></div>";
-					newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=storeCard(";
-				newHTML+="\""+cname+"\"";
+				
+				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=storeCard(";
+				newHTML+="\""+encodeURIComponent(cname)+"\"";
 				newHTML+=")>Add</button></div>";
 				newHTML+="</td></tr></div>";
  				continue;

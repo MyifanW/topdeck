@@ -45,6 +45,26 @@
 	
 	
 <script>
+function storeCard(str){
+	  if (str=="") {
+		document.getElementById("txtHint").innerHTML="";
+		return;
+	  } 
+	  if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	  } else { // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+	 {
+		  document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	  xmlhttp.open("GET","storecard.php?q="+str,true);
+	  xmlhttp.send();
+}
   function preview(string){
 	document.getElementById("rightSquare").innerHTML=decodeURIComponent(string);
   }
@@ -126,6 +146,9 @@
 				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=preview(";
 				newHTML+="\""+encodeURIComponent(prev)+"\"";
 				newHTML+=")>preview</button></div>";
+					newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=storeCard(";
+				newHTML+="\""+cname+"\"";
+				newHTML+=")>Add</button></div>";
 				newHTML+="</td></tr></div>";
  				continue;
 				

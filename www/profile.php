@@ -78,8 +78,10 @@
 		color = "G";
 	}else if(document.getElementById('WhiteBox').checked){
 		color = "W";
-	}else{
+	}else if(document.getElementById('ColorlessBox').checked){
 		color = "colorless";
+	}else{
+		null;
 	}
  
  	//get drop down info
@@ -138,6 +140,7 @@
  		}
  		return false;
  	}
+	
 	
 	function typeCheck(){
 		var cardType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
@@ -235,7 +238,11 @@
 			<input type="checkbox" id="BlackBox" value="Black">
 			Black
 		</label>
-		
+			
+		<label class="checkbox">
+			<input type="checkbox" id="ColorlessBox" value="colorless">
+			Colorless
+		</label>
 		
 		<!-- end checkboxes -->
 		

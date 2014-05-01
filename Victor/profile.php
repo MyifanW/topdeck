@@ -80,8 +80,10 @@
 		color = "G";
 	}else if(document.getElementById('WhiteBox').checked){
 		color = "W";
-	}else{
+	}else if(document.getElementById('ColorlessBox').checked){
 		color = "colorless";
+	}else{
+		color = null;
 	}
  
  	//get drop down info
@@ -163,14 +165,16 @@
  	}
 	
 	function typeCheck(){
-		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue || type == "None"){
+		var cardType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+		if(type == "None" || cardType.search(type) != -1){
 			return true;
 		}
 		return false;
 	}
 	
 	function nameCheck(){
-		if(name == "" || name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
+		var cardName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+		if(name == "" || cardName.search(name) != -1{
 			return true;
 		}
 		return false;
@@ -255,6 +259,11 @@
 		<label class="checkbox">
 			<input type="checkbox" id="BlackBox" value="Black">
 			Black
+		</label>
+		
+		<label class="checkbox">
+			<input type="checkbox" id="ColorlessBox" value="colorless">
+			Colorless
 		</label>
 		
 		

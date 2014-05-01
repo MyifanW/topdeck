@@ -123,10 +123,10 @@
  				prev+="</div></td></tr>";
 				
 				
-				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=preview("
+				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=preview(";
 				newHTML+="\""+encodeURIComponent(prev)+"\"";
 				newHTML+=")>preview</button></div>";
-				newHTML+="</td></tr></div>"
+				newHTML+="</td></tr></div>";
  				continue;
 				
 				
@@ -174,7 +174,7 @@
 	
 	function nameCheck(){
 		var cardName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-		if(name == "" || cardName.search(name) != -1{
+		if(name == "" || cardName.search(name) != -1){
 			return true;
 		}
 		return false;

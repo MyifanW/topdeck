@@ -45,9 +45,11 @@
 	
 	
 <script>
-
+  function preview(string){
+	document.getElementById("rightSquare").innerHTML=decodeURIComponent(string);
+  }
  function cardSearch(){
- 
+	document.getElementById("rightSquare").innerHTML="";
  	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
  		xmlhttp=new XMLHttpRequest();
  	}else{// code for IE6, IE5
@@ -81,7 +83,7 @@
 	}else if(document.getElementById('ColorlessBox').checked){
 		color = "colorless";
 	}else{
-		null;
+		color = null;
 	}
  
  	//get drop down info
@@ -90,34 +92,55 @@
  	
  	//get name textBox info
  	name = document.getElementById("cardName").value;
+	
  	
  	if(color == null && type == "None" && name == null){
  	
  	}else{
  		for (i=0;i<1000;i++){ //change 1000 to however many cards you want to search through in xml
  			if(colorCheck() && typeCheck() && nameCheck()){ 
+				var cname = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+				
+				var ctype = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
  				var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
- 				newHTML+="<tr><td align=\"center\">"+"<div style=\"padding-left:100px;\">";
+ 				newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\" style=\"padding-left:100px;\">";
  				newHTML+="</br></br>";
  				newHTML+="<img src="+urlString+"alt=\"\">";
-				newHTML+="</td></div><td align=\"left\">"+"<div style=\"padding-left:100px;\">";
- 				newHTML+="<b>Name:</b>  "+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-				newHTML+="</br></br>";
-				newHTML+="<b>Set:</b>  "+x[i].getElementsByTagName("set")[0].childNodes[0].nodeValue;
-				newHTML+="</br></br>";
-				newHTML+="<b>Mana Cost:</b>  "+x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue;
-				newHTML+="</br></br>";
-				newHTML+="<b>Type:</b>  "+x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
-				newHTML+="</br></br>";
-				newHTML+="<b>Card Text:</b>  "+x[i].getElementsByTagName("text")[0].childNodes[0].nodeValue;
- 				newHTML+="</br></br>";
- 				newHTML+="</div></td></tr>";
+				
+				
+				var prev="";
+				prev="";
+				prev+="<b>Name:</b>  "+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+				prev+="</br></br>";
+				prev+="<b>Set:</b>  "+x[i].getElementsByTagName("set")[0].childNodes[0].nodeValue;
+				prev+="</br></br>";
+				prev+="<b>Mana Cost:</b>  "+x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue;
+				prev+="</br></br>";
+				prev+="<b>Type:</b>  "+x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+				prev+="</br></br>";
+				prev+="<b>Card Text:</b>  "+x[i].getElementsByTagName("text")[0].childNodes[0].nodeValue;
+ 				prev+="</br></br>";
+ 				prev+="</div></td></tr>";
+				
+				
+				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=preview(";
+				newHTML+="\""+encodeURIComponent(prev)+"\"";
+				newHTML+=")>preview</button></div>";
+				newHTML+="</td></tr></div>";
  				continue;
+				
+				
+				
+				
+ 				
+				
  			}
  		}
  	}
  	newHTML+="</table>";
+	
  	document.getElementById("middleSquare").innerHTML = newHTML;
+	
  	//technically the end of cardSearch function;
  	
  	function colorCheck(){
@@ -141,10 +164,9 @@
  		return false;
  	}
 	
-	
 	function typeCheck(){
 		var cardType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
-		if(cardType.search(type) != -1 || type == "None"){
+		if(type == "None" || cardType.search(type) != -1){
 			return true;
 		}
 		return false;
@@ -238,11 +260,12 @@
 			<input type="checkbox" id="BlackBox" value="Black">
 			Black
 		</label>
-			
+		
 		<label class="checkbox">
 			<input type="checkbox" id="ColorlessBox" value="colorless">
 			Colorless
 		</label>
+		
 		
 		<!-- end checkboxes -->
 		
@@ -253,7 +276,7 @@
 		</div>
         <div id ="middleSquare" class="mini-layout-body">
 		</div>
-		<div class="mini-layout-sidebar-right"></div>
+		<div id="rightSquare" class="mini-layout-sidebar-right"></div>
 	</div>
 	
 	

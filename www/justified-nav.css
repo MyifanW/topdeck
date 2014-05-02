@@ -9,47 +9,6 @@ body {
   border-top: 1px solid #eee;
 }
 
-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
-}
-
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  font-weight: normal;
-}
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -241,13 +200,12 @@ body {
           border-radius: 3px;
 }
 .mini-layout .mini-layout-body {
-  background-color: #dceaf4;
+  background-color: #DDD;
   margin: 0 auto;
   width: 70%;
-  overflow: auto;
 }
 .mini-layout .search-body {
-  background-color: #dceaf4;
+  background-color: #d124d1;
   margin: 0 auto;
   width: 75%;
 }
@@ -258,12 +216,12 @@ body {
   float: left;
 }
 .mini-layout.fluid .mini-layout-sidebar {
-  background-color: #bbd8e9;
+  background-color: #CCC;
   width: 20%;
 }
 
 .mini-layout.fluid .mini-layout-sidebar-right {
-  background-color: #bbd8e9;
+  background-color: #CCC;
   width: 20%;
   float: right;
 }

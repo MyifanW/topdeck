@@ -33,7 +33,7 @@
 
     <!-- Custom styles for this template -->
     <link href="justified-nav.css" rel="stylesheet">
-
+	<link href="body.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -248,9 +248,18 @@ function storeCard(str1){
 <div class="mini-layout fluid">
 		<div  class="mini-layout-sidebar">
 		
-		 
-
-		<input type="text" id="cardName" placeholder="Name">
+		</div>
+        <div id ="middleSquare" class="mini-layout-body">
+		
+			
+			
+		
+		</div>
+		
+		
+		<div class="search">
+			
+			<input type="text" id="cardName" placeholder="Name">
 		<br><br>
 		Type : 
 		<select id="typeDropDown">
@@ -263,46 +272,45 @@ function storeCard(str1){
 		</select>
 		
 		<!-- checkboxes -->
-		<label class="checkbox">
-			<input type="checkbox" id="RedBox" value="Red">
-			Red
-		</label>
 		
-		<label class="checkbox">
-			<input type="checkbox" id="BlueBox" value="Blue">
-			Blue
-		</label>
-		
-		<label class="checkbox">
-			<input type="checkbox" id="GreenBox" value="Green">
-			Green
-		</label>
-		
-		<label class="checkbox">
+		<label class="checkbox inline">
 			<input type="checkbox" id="WhiteBox" value="White">
 			White
 		</label>
 		
-		<label class="checkbox">
+		<label class="checkbox inline">
 			<input type="checkbox" id="BlackBox" value="Black">
 			Black
 		</label>
 		
-		<label class="checkbox">
+		<label class="checkbox inline">
 			<input type="checkbox" id="ColorlessBox" value="colorless">
 			Colorless
 		</label>
+		<label class="checkbox inline">
+			<input type="checkbox" id="RedBox" value="Red">
+			Red
+		</label>
+		
+		<label class="checkbox inline">
+			<input type="checkbox" id="BlueBox" value="Blue">
+			Blue
+		</label>
+		
+		<label class="checkbox inline">
+			<input type="checkbox" id="GreenBox" value="Green">
+			Green
+		</label>
+		
+		
 		
 		
 		<!-- end checkboxes -->
 		
 		<button onclick=cardSearch()>Search</button>
 		
-
-		
-		</div>
-        <div id ="middleSquare" class="mini-layout-body">
-		</div>
+			</div>
+			
 		<div id="rightSquare" class="mini-layout-sidebar-right"></div>
 	</div>
 	
@@ -311,6 +319,8 @@ function storeCard(str1){
 </body>
 	
 </div>
+	
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -67,10 +67,8 @@
 </head>
 <body>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -78,25 +76,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">TopDeck Traders</a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" height="40" width="400"></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="myMessages.php"><span class="glyphicon glyphicon-envelope"></span> Mail </a></li>
+            <li><a href="myProfile.php"><span class="glyphicon glyphicon-user"></span> Profile   &nbsp; &nbsp;</a></li>
           </ul>
         </div>
-<!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      </div>
+    </div>
 
 	<div class="masthead">
         <ul class="nav nav-justified">
 		  
-          <li class="active"><a href="#">My Binder</a></li>
-          <li><a href="#">Search Traders</a></li>
-          <li><a href="#">Search Events</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="myBinder.php">My Binder</a></li>
+          <li><a href="searchplayers.php">Search Traders</a></li>
+          <li><a href="searchevents.php">Search Events</a></li>
+          <li><a href="about.php">About</a></li>
         </ul>
     </div>
 
@@ -104,8 +101,8 @@
 	<div class="row well">
 		<div class="col-md-2">
     	    <ul class="nav nav-pills nav-stacked well">
-              <li><a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
-              <li  class="active"><a href="#"><i class="glyphicon glyphicon-envelope"></i> Mail</a></li>
+              <li><a href="myProfile.php"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+              <li  class="active"><a href="myMessages.php"><i class="glyphicon glyphicon-envelope"></i> Mail</a></li>
               <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
               <li><a href="#"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
             </ul>
@@ -166,7 +163,17 @@
     <div class="modal-content"><br/><br/>
             <form class="form-horizontal">
             <fieldset>
-            <!-- Text input-->
+            
+			<!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="body">User :</label>  
+              <div class="col-md-8">
+              <input id="body" name="body" type="text" placeholder="Recipient Username" class="form-control input-md">
+                
+              </div>
+            </div>
+			
+			<!-- Text input-->
             <div class="form-group">
               <label class="col-md-2 control-label" for="body">Body :</label>  
               <div class="col-md-8">

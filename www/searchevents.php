@@ -43,13 +43,53 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
+	
 	<script type="text/javascript">
-	<!-- put yo scripts here-->
-	function SearchFun() { 
-        if(document.getElementById('players').style.display=='none') { 
-            document.getElementById('players').style.display='block'; 
-        } 
-    } 
+function eventSearch(){
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.open("GET","events.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML; 
+	var newString = "";
+	var x = xmlDoc.getElementsByTagName("event");
+	var type = document.getElementById("type").value;
+	var format = document.getElementById("format").value;
+	var name = document.getElementById("eventName").value;
+		for (i=0;i<12;i++){
+			var eventType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+			var eventFormat = x[i].getElementsByTagName("format")[0].childNodes[0].nodeValue;
+			var eventName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+			if(type == eventType || format == eventFormat || name == eventName){
+				newString += "<table>";
+				var urlString = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic")+"\"";
+				var urlString2 = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic2")+"\"";
+				var address = x[i].getElementsByTagName("location")[0].getAttribute("address");
+				var city = x[i].getElementsByTagName("location")[0].getAttribute("city");
+				var zip = x[i].getElementsByTagName("location")[0].getAttribute("zip");
+				var state = x[i].getElementsByTagName("location")[0].childNodes[0].nodeValue;
+				// tournament information
+				// format
+				// type
+				var date_start = x[i].getElementsByTagName("dateStart")[0].childNodes[0].nodeValue;
+				var time_start = x[i].getElementsByTagName("timeStart")[0].childNodes[0].nodeValue;
+				var description = x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+				newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"</td>";
+				newString += "<td><b>Location</b><br>"+eventName+"<br>"+address+"<br>"+city+", "+state+" "+zip;
+				newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
+				newString += "<td><a href="+urlString2+"><img src="+urlString+" alt=\"\"></a></td></tr>";
+				newString += "</table>";
+				newString += "<br><br>";
+			}
+		}
+	document.getElementById("resultBox").innerHTML = newString;
+}
 	</script>
 
   </head>
@@ -90,62 +130,36 @@
 <body>
 	<div class="mini-layout fluid">
 		<div class="mini-layout-sidebar">
-		<!--search players using options-->
-		</br>
-		Search for players with the card you want.
-		</br>
-			<div class="table-responsive">
-            <table class="table table-hover">
-				<tr>
-					<td style="width:50%">Card:</td>
-					<td><input type="text" name="FirstName" value="Blue-eyes white Dragon"></td>		
-				</tr>
-				<tr>
-					<select>
-					  <option value="Friday Night Magic">Friday Night Magic</option>
-					  <option value="Pro Tour Qualifiers">Pro Tour Qualifiers</option>
-					  <option value="Pro Tour">Pro Tour</option>
-					  <option value="Magic Game Day">Magic Game Day</option>
-					</select>
-				</tr>
-			</table>
-			</div>
-			<button onclick="SearchFun()">Search</button>
+		
+		<input type="text" id="eventName" placeholder="Name"><br><br>
+
+		Format : 
+		<select id = format>
+			<option value="None"></option>
+			<option value="Modern">Modern</option>
+			<option value="Sealed Deck">Sealed Deck</option>
+			<option value="Standard">Standard</option>
+			<option value="2 HG Sealed">2 HG Sealed</option>
+			<option value="Legacy">Legacy</option>
+			<option value="Booster Draft">Booster Draft</option>
+
+		</select><br><br>
+		Type : 
+		<select id = type>
+			<option value="None"></option>
+			<option value="Friday Night Magic">Friday Night Magic</option>
+			<option value="Magic Game Day">Magic Game Day</option>
+			<option value="Casual Magic Event">Casual Magic Event</option>
+			<option value="Grand Prix">Grand Prix</option>
+			<option value="Pro Tour Qualifier">Pro Tour Qualifier</option>
+		</select>
+		
+		<br><br>
+		
+		<button onclick=eventSearch()>Search</button>
+		
 		</div>
-        <div class="search-body">
-			<div class="table-responsive" id = "players" style="display: none">
-            <table class="table table-hover">
-				<tr>
-					<td style="width:30%">
-					Profile Picture
-					
-					</td>
-					<td>
-						</br>
-						Victor
-						</br>
-						5 stars
-						</br>
-						asking price
-					</td>		
-				</tr>
-				<tr>
-					<td style="width:30%">
-					Profile Picture
-					
-					</td>
-					<td>
-						</br>
-						Jojo
-						</br>
-						4 stars
-						</br>
-						asking price
-					</td>		
-				</tr>
-			</table>
-			</div>
-		</div>
+        <div id="resultBox" class="search-body"></div>
 	</div>
 </body>
 	

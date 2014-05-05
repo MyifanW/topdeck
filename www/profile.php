@@ -412,220 +412,227 @@ function storeCard(str1){
 	
 <body>
 <div class="mini-layout fluid">
-		<div  class="mini-layout-sidebar">
+		<div  class="mini-layout-sidebar col-lg-3">
 			
-				<button type="button" style="float:right;" class="btn btn-default btn-lg" onclick=toggle_visibility("myCollection")>My Collection</button>
-				<button type="button" style="float:right;"class="btn btn-default btn-lg" onclick=toggle_visibility("myWishlist")>My Wishlist</button>
-			
-		</div>
-        <div id ="middleSquare" class="mini-layout-body">
-		
-		</div>
-		
-		<div class="search">
-			
-			<input type="text" id="cardName" placeholder="Name">
-		<br><br>
-		Type : 
-		<select id="typeDropDown">
-			<option value="None">None</option>
-			<option value="Sorcery">Sorcery</option>
-			<option value="Instant">Instant</option>
-			<option value="Creature">Creature</option>
-			<option value="Artifact">Artifact</option>
-			<option value="Enchantment">Enchantment</option>
-		</select>
-			
-		<div class="searchButton">
-		<button onclick=cardSearch()>Search</button>
-		</div>
-		
-	</div>
-			
-		<div id="rightSquare" class="mini-layout-sidebar-right">
-		
-		</div>
-	</div>
-	
-	<div class="checkboxes">
-		
-		<div class="topcheck">
-		<label>
-			<input type="checkbox" id="WhiteBox" value="White">
-			White
-		</label>
-		
-		<label>
-			<input type="checkbox" id="BlackBox" value="Black">
-			Black
-		</label>
-		
-		<label>
-			<input type="checkbox" id="ColorlessBox" value="colorless">
-			Colorless
-		</label>
-		</div>
-		
-		
-		<div>
-		<label>
-			<input type="checkbox" id="RedBox" value="Red">
-			Red
-		</label>
-		
-		<label>
-			<input type="checkbox" id="BlueBox" value="Blue">
-			Blue
-		</label>
-		
-		<label>
-			<input type="checkbox" id="GreenBox" value="Green">
-			Green
-		</label>
-		</div>
-		
-	</div>
-	
-	
-	
-	
-	
-	<div class="leftSearch" id="leftSquare">
-		<input type="text" id="cardNameLeft" placeholder="Name">
-		<br><br>
-		Type : 
-		<select id="typeDropDownLeft">
-			<option value="None">None</option>
-			<option value="Sorcery">Sorcery</option>
-			<option value="Instant">Instant</option>
-			<option value="Creature">Creature</option>
-			<option value="Artifact">Artifact</option>
-			<option value="Enchantment">Enchantment</option>
-		</select>
-			
-		<div class="searchButton">
-		<button onclick=cardFilter(currentVisable)>Search</button>
-		</div>
-		<div class="checkboxesLeft">
-		<div>
-		<label>
-			<input type="checkbox" id="WhiteBox2" value="White">
-			White
-		</label>
-		
-		<label>
-			<input type="checkbox" id="BlackBox2" value="Black">
-			Black
-		</label>
-		
-		<label>
-			<input type="checkbox" id="ColorlessBox2" value="colorless">
-			Colorless
-		</label>
-		</div>
-		
-		
-		<div>
-		<label>
-			<input type="checkbox" id="RedBox2" value="Red">
-			Red
-		</label>
-		
-		<label>
-			<input type="checkbox" id="BlueBox2" value="Blue">
-			Blue
-		</label>
-		
-		<label>
-			<input type="checkbox" id="GreenBox2" value="Green">
-			Green
-		</label>
-		</div>
-		</div>
-		
-	</div>
+				<button type="button" style="float:left;" class="btn btn-default " onclick=toggle_visibility("myCollection")>My Collection</button>
+				<button type="button" style="float:right;"class="btn btn-default " onclick=toggle_visibility("myWishlist")>My Wishlist</button>
+				</br>
+				<div class="leftSearch well" id="leftSquare">
+					<input type="text" id="cardNameLeft" class="form-control" placeholder="Name">
+					<br>
+					Type : 
+					<select id="typeDropDownLeft">
+						<option value="None">None</option>
+						<option value="Sorcery">Sorcery</option>
+						<option value="Instant">Instant</option>
+						<option value="Creature">Creature</option>
+						<option value="Artifact">Artifact</option>
+						<option value="Enchantment">Enchantment</option>
+					</select>
+						
+					
+					<div class="checkboxesLeft">
+						<label>
+							<input type="checkbox" id="WhiteBox2" value="White">
+							White
+						</label>
+						
+						<label>
+							<input type="checkbox" id="BlackBox2" value="Black">
+							Black
+						</label>
+						
+						<label>
+							<input type="checkbox" id="ColorlessBox2" value="colorless">
+							Colorless
+						</label>
+						</div>
+						
+						
+						<div>
+						<label>
+							<input type="checkbox" id="RedBox2" value="Red">
+							Red
+						</label>
+						
+						<label>
+							<input type="checkbox" id="BlueBox2" value="Blue">
+							Blue
+						</label>
+						
+						<label>
+							<input type="checkbox" id="GreenBox2" value="Green">
+							Green
+						</label>
+						</div>
 
-	<div id="myCollection" class="leftPanel">
-	
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
-	myCollection myCollection myCollection myCollection myCollection
+						<div >
+							<button class="searchButton btn btn-default" onclick=cardFilter(currentVisable)>Search</button>
+						</div>						
+					</div>
+				<div id="myCollection" class="leftPanel">
+				
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
+				myCollection myCollection myCollection myCollection myCollection
 
+				</div>
+				
+				<div id="myWishlist" class="leftPanel">
+				
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				myWishlist myWishlist myWishlist myWishlist myWishlist
+				
+				</div>
+		</div>
+    <div class="col-lg-9">
+	
+		<div class="search well row">
+			<div class="col-lg-3">
+				<input type="text" class="form-control" id="cardName" placeholder="Name">
+				</br>
+			</div>
+			
+			<div class="col-md-3">
+				
+				Type:
+				<select id="typeDropDown" >
+					<option value="None">None</option>
+					<option value="Sorcery">Sorcery</option>
+					<option value="Instant">Instant</option>
+					<option value="Creature">Creature</option>
+					<option value="Artifact">Artifact</option>
+					<option value="Enchantment">Enchantment</option>
+				</select>
+			</div>
+			<div class="checkboxes col-md-4">
+				
+				<div class="topcheck">
+				<label>
+					<input type="checkbox" id="WhiteBox" value="White">
+					White
+				</label>
+				
+				<label>
+					<input type="checkbox" id="BlackBox" value="Black">
+					Black
+				</label>
+				
+				<label>
+					<input type="checkbox" id="ColorlessBox" value="colorless">
+					Colorless
+				</label>
+				</div>
+				
+				
+				<div>
+				<label>
+					<input type="checkbox" id="RedBox" value="Red">
+					Red
+				</label>
+				
+				<label>
+					<input type="checkbox" id="BlueBox" value="Blue">
+					Blue
+				</label>
+				
+				<label>
+					<input type="checkbox" id="GreenBox" value="Green">
+					Green
+				</label>
+				</div>
+			</div>
+			
+				<div class="searchButton col-lg-1">
+					<button class="btn btn-default btn-lg" onclick=cardSearch()>Search</button>
+				</div>	
+		</div>		
+		
+		<div class="col-lg-9">
+			<div id ="middleSquare" class="mini-layout-body">
+		
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div id="rightSquare" class="mini-layout-sidebar-right">	
+			</div>
+		</div>
 	</div>
 	
-	<div id="myWishlist" class="leftPanel">
 	
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
-	myWishlist myWishlist myWishlist myWishlist myWishlist
 	
-	</div>
+	
+	
+	
+	
+	
 </body>
 	
 

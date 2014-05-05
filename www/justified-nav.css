@@ -202,27 +202,25 @@ body {
 .mini-layout .mini-layout-body {
   background-color: #DDD;
   margin: 0 auto;
-  width: 70%;
 }
 .mini-layout .search-body {
   background-color: #d124d1;
   margin: 0 auto;
-  width: 75%;
 }
 .mini-layout.fluid .mini-layout-sidebar,
 .mini-layout.fluid .mini-layout-header,
 .mini-layout.fluid .search-body,
 .mini-layout.fluid .mini-layout-body {
   float: left;
+  overflow-y:scroll;
 }
 .mini-layout.fluid .mini-layout-sidebar {
   background-color: #CCC;
-  width: 20%;
 }
 
 .mini-layout.fluid .mini-layout-sidebar-right {
   background-color: #CCC;
-  width: 20%;
+  width: 100%;
   float: right;
 }
 
@@ -230,8 +228,8 @@ body {
   height: 775px;
 }
 .mini-layout.fluid .mini-layout-body {
-  width: 55%;
-  margin-left: 2.5%;
+  width: 100%;
+  margin-left: .5%;
 }
 .mini-layout.fluid .search-body{
   width: 79%;

@@ -104,8 +104,8 @@
               <li><a href="myProfile.php"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
               <li  class="active"><a href="myMessages.php"><i class="glyphicon glyphicon-envelope"></i> Mail</a></li>
               <li><a href="myEvents.php"><i class="glyphicon glyphicon-map-marker"></i> Events</a></li>
-              <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
-              <li><a href="#"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+              <li><a href="UnderConstruction.php"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
+              <li><a href="UnderConstruction.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
             </ul>
         </div>
         <div class="col-md-10">

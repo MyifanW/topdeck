@@ -46,10 +46,14 @@
 	
 
    
-
-
 	
 <script>
+
+function load()
+{
+	loadCollectionCards();
+}
+
 var currentVisable = "myWishlist";
  function toggle_visibility(id) {
        
@@ -68,16 +72,9 @@ var currentVisable = "myWishlist";
 		  b.style.display = 'none';
     
     }
-	
-	
-function storeCard(str1){
-	var str = decodeURIComponent(str1);
-	 alert(str);
-	  if (str=="") {
-		document.getElementById("txtHint").innerHTML="";
-		return;
-	  } 
-	  alert(str);
+
+function loadCollectionCards(){
+
 	  if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -86,8 +83,31 @@ function storeCard(str1){
 	  }
 	  xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
-	 {
-		  document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+		{
+		  document.getElementById("myCollection").innerHTML=xmlhttp.responseText;
+		  
+		}
+	  }
+	  xmlhttp.open("GET","loadcollectcard.php",true);
+	  xmlhttp.send();
+}	
+	
+function storeCard(str1){
+	var str = decodeURIComponent(str1);
+	  if (str=="") {
+		document.getElementById("txtHint").innerHTML="";
+		return;
+	  } 
+	  if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	  } else { // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+		{		  
+			alert(xmlhttp.responseText);
 		}
 	  }
 	  xmlhttp.open("GET","storecard.php?q="+str,true);
@@ -174,11 +194,11 @@ function storeCard(str1){
  				prev+="</div></td></tr>";
 				
 				
-				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=preview(";
+				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" class=\"btn btn-default\" onclick=preview(";
 				newHTML+="\""+encodeURIComponent(prev)+"\"";
 				newHTML+=")>preview</button></div>";
 				
-				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=storeCard(";
+				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" class=\"btn btn-default btn-xs\" onclick=storeCard(";
 				newHTML+="\""+encodeURIComponent(cname)+"\"";
 				newHTML+=")>Add</button></div>";
 				newHTML+="</td></tr></div>";
@@ -250,7 +270,7 @@ function storeCard(str1){
  	var x=xmlDoc.getElementsByTagName("card");
  	
  	var radios = document.getElementsByName('optionsRadios');
- 	var newHTML = "<table border=1>";
+ 	var newHTML = "<table class=\"table\">";
  	var color = null;
  	var name = "";
  	var type = "None";
@@ -292,8 +312,7 @@ function storeCard(str1){
 				
 				var ctype = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
  				var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
- 				newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\" style=\"padding-left:100px;\">";
- 				newHTML+="</br></br>";
+ 				newHTML+="<tr><td>"+"<div id=\""+cname+"\">";
  				
 				
 				
@@ -312,12 +331,11 @@ function storeCard(str1){
  				prev+="</br></br>";
  				prev+="</div></td></tr>";
 				
-				newHTML+="<button id=cardButton type=\"button\" style=\"float:left;\" class=\"btn btn-default btn-lg\" onclick=preview(\""+encodeURIComponent(prev)+"\")>"+cname+"</button>";
-				newHTML+="<td>";
-				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" onclick=storeCard(";
+				newHTML+="<button id=\"cardButton\" type=\"button\" class=\"btn btn-default\" onclick=preview(\""+encodeURIComponent(prev)+"\")>"+cname+"</button>";
+				newHTML+="<div><button type=\"button\" class=\"btn btn-default btn-xs\" onclick=storeCard(";
 				newHTML+="\""+encodeURIComponent(cname)+"\"";
 				newHTML+=")>Remove</button></div>";
-				newHTML+="</td></tr></div>";
+				newHTML+="</tr></div>";
  				continue;
 				
 				
@@ -376,7 +394,7 @@ function storeCard(str1){
   </script>
   </head>
 
-  <body>
+  <body onload="load()">
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -472,83 +490,10 @@ function storeCard(str1){
 					</div>
 				<div id="myCollection" class="leftPanel">
 				
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-				myCollection myCollection myCollection myCollection myCollection
-
 				</div>
 				
 				<div id="myWishlist" class="leftPanel">
 				
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
-				myWishlist myWishlist myWishlist myWishlist myWishlist
 				
 				</div>
 		</div>

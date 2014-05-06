@@ -225,10 +225,11 @@ body {
 }
 
 .mini-layout.fluid .mini-layout-sidebar-right {
-  height: 775px;
+  height: 665px;
 }
 .mini-layout.fluid .mini-layout-body {
   width: 100%;
+  height: 665px;
   margin-left: .5%;
 }
 .mini-layout.fluid .search-body{

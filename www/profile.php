@@ -127,7 +127,7 @@ function cardSearch2(string)
 					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
 					newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\" style=\"padding-left:100px;\">";
 					newHTML+="</br></br>";
-					newHTML+="<img src="+urlString+"alt=\"\">";
+					
 					
 					
 					var prev="";
@@ -145,14 +145,11 @@ function cardSearch2(string)
 					prev+="</div></td></tr>";
 					
 					
-					newHTML+="<div style=\"float:bottom;\"><button type=\"button\" class=\"btn btn-default\" onclick=preview(";
-					newHTML+="\""+encodeURIComponent(prev)+"\"";
-					newHTML+=")>preview</button></div>";
-					
-					newHTML+="<div style=\"float:bottom;\"><button type=\"button\" class=\"btn btn-default btn-xs\" onclick=storeCard(";
+					newHTML+="<button id=\"cardButton\" type=\"button\" class=\"btn btn-default\" onclick=preview(\""+encodeURIComponent(prev)+"\")>"+cname+"</button>";
+					newHTML+="<div><button type=\"button\" class=\"btn btn-default btn-xs\" onclick=storeCard(";
 					newHTML+="\""+encodeURIComponent(cname)+"\"";
-					newHTML+=")>Add</button></div>";
-					newHTML+="</td></tr></div>";
+					newHTML+=")>Remove</button></div>";
+					newHTML+="</tr></div>";
 					
 					break;
 					

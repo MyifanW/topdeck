@@ -45,6 +45,31 @@
 	
 	
 	<script type="text/javascript">
+	
+	function storeEvent(str1){
+	var str = decodeURIComponent(str1);
+	 alert(str);
+	  if (str=="") {
+		document.getElementById("txtHint").innerHTML="";
+		return;
+	  } 
+	  alert(str);
+	  if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	  } else { // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+	 {
+		  document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	  xmlhttp.open("GET","storeEvent.php?q="+str,true);
+	  xmlhttp.send();
+	}
+	
 function eventSearch(){
 	if (window.XMLHttpRequest)
 	  {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -80,12 +105,18 @@ function eventSearch(){
 				var date_start = x[i].getElementsByTagName("dateStart")[0].childNodes[0].nodeValue;
 				var time_start = x[i].getElementsByTagName("timeStart")[0].childNodes[0].nodeValue;
 				var description = x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
-				newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"</td>";
+				newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 				newString += "<td><b>Location</b><br>"+eventName+"<br>"+address+"<br>"+city+", "+state+" "+zip;
 				newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 				newString += "<td><a href="+urlString2+"><img src="+urlString+" alt=\"\"></a></td></tr>";
 				newString += "</table>";
 				newString += "<br><br>";
+				
+				// does button?
+				newString += "<div style=\"float:bottom;\"><button type=\"button\" onclick=storeEvent(";
+				newString += "\""+encodeURIComponent(eventName)+"\"";
+				newString += ")>Add to My Events</button></div>";
+				newString += "</td></tr></div>";
 			}
 		}
 	document.getElementById("resultBox").innerHTML = newString;

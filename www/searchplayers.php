@@ -69,8 +69,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">My Binder</a></li>
+            <li><a href="myMessages.php"><span class="glyphicon glyphicon-envelope"></span> Mail </a></li>
+            <li><a href="myProfile.php"><span class="glyphicon glyphicon-user"></span> Profile   &nbsp; &nbsp;</a></li>
           </ul>
         </div>
       </div>
@@ -79,10 +79,10 @@
 	<div class="masthead">
         <ul class="nav nav-justified">
 		  
-          <li><a href="#">Profile</a></li>
-          <li class="active"><a href="#">Search Traders</a></li>
-          <li><a href="#">Search Events</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="profile.php">My Binder</a></li>
+          <li><a href="searchplayers.php">Search Traders</a></li>
+          <li class="active"><a href="searchevents.php">Search Events</a></li>
+          <li><a href="about.php">About</a></li>
         </ul>
     </div>
 	

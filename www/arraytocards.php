@@ -5,7 +5,7 @@
 	var blah = "Carrier Pigeons;Exile;Inheritance;";
 	
 	
-	function cardSearch2(string)
+	function cardSearch(string)
 	{
  
 	document.getElementById("test").innerHTML="";
@@ -33,7 +33,7 @@
 		
 		}else{
 			for (i=0;i<1000;i++){ //change 1000 to however many cards you want to search through in xml
-				if(nameChecker()){ 
+				if(nameCheck5()){ 
 					var cname = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
 					
 					var ctype = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
@@ -82,10 +82,10 @@
 	
  	document.getElementById("test").innerHTML = newHTML;
 	
- 	//technically the end of cardSearch2 function;
+ 	//technically the end of cardSearch function;
  	
  	
-	function nameChecker(){
+	function nameCheck5(){
 		var cardName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
 		if(name[j] == "" || cardName.search(name[j]) != -1){
 			
@@ -99,7 +99,7 @@
 	</head>
 	<body>
 	<div id="test">
-	<button type="button" onclick=cardSearch2(encodeURIComponent(blah))>BUTTON</button>
+	<button type="button" onclick=cardSearch(encodeURIComponent(blah))>BUTTON</button>
 	</div>
 	</body>
 </html>

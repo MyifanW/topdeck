@@ -106,7 +106,7 @@ function cardSearch2(string)
 	xmlDoc=xmlhttp.responseXML; 
 	var x=xmlDoc.getElementsByTagName("card");
 
-	var newHTML = "<table>";
+	var newHTML = "<table class=\"table table-condensed table-hover\">";
 
 		
 
@@ -125,8 +125,8 @@ function cardSearch2(string)
 					
 					var ctype = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
 					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
-					newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\" style=\"padding-left:100px;\">";
-					newHTML+="</br></br>";
+					newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\">";
+					
 					
 					
 					
@@ -523,57 +523,7 @@ function storeCard(str1){
 				<button type="button" style="float:right;"class="btn btn-default " onclick=toggle_visibility("myWishlist")>My Wishlist</button>
 				</br>
 				<div class="leftSearch well" id="leftSquare">
-					<input type="text" id="cardNameLeft" class="form-control" placeholder="Name">
-					<br>
-					Type : 
-					<select id="typeDropDownLeft">
-						<option value="None">None</option>
-						<option value="Sorcery">Sorcery</option>
-						<option value="Instant">Instant</option>
-						<option value="Creature">Creature</option>
-						<option value="Artifact">Artifact</option>
-						<option value="Enchantment">Enchantment</option>
-					</select>
-						
 					
-					<div class="checkboxesLeft">
-						<label>
-							<input type="checkbox" id="WhiteBox2" value="White">
-							White
-						</label>
-						
-						<label>
-							<input type="checkbox" id="BlackBox2" value="Black">
-							Black
-						</label>
-						
-						<label>
-							<input type="checkbox" id="ColorlessBox2" value="colorless">
-							Colorless
-						</label>
-						</div>
-						
-						
-						<div>
-						<label>
-							<input type="checkbox" id="RedBox2" value="Red">
-							Red
-						</label>
-						
-						<label>
-							<input type="checkbox" id="BlueBox2" value="Blue">
-							Blue
-						</label>
-						
-						<label>
-							<input type="checkbox" id="GreenBox2" value="Green">
-							Green
-						</label>
-						</div>
-
-						<div >
-							<button class="searchButton btn btn-default" onclick=cardFilter(currentVisable)>Search</button>
-						</div>						
 					</div>
 				<div id="myCollection" class="leftPanel">
 				

@@ -61,10 +61,14 @@ var currentVisable = "myWishlist";
        var b;
 	   
 	   if( id == "myCollection"){
+			loadCollectionCards();
+			document.getElementById("leftSquare").innerHTML = "Collection";
 			b = document.getElementById("myWishlist");
 			currentVisable = "myCollection";
 			
 	   } else {
+			loadWishlistCards();
+			document.getElementById("leftSquare").innerHTML = "Wishlist";
 			b = document.getElementById("myCollection");
 			currentVisable = "myWishlist";
 	   }
@@ -86,16 +90,35 @@ function loadCollectionCards(){
 		{
 			var blah = xmlhttp.responseText;
 		  //document.getElementById("myCollection").innerHTML= blah;
-		  cardSearch2(encodeURIComponent(blah));
+		  cardSearch2(encodeURIComponent(blah), "myCollection");
 		}
 	  }
 	  xmlhttp.open("GET","loadcollectcard.php",true);
 	  xmlhttp.send();
+}
+function loadWishlistCards(){
+
+	  if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	  } else { // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+		{
+			var blah = xmlhttp.responseText;
+		  //document.getElementById("myCollection").innerHTML= blah;
+		  cardSearch2(encodeURIComponent(blah), "myWishlist");
+		}
+	  }
+	  xmlhttp.open("GET","loadwishcard.php",true);
+	  xmlhttp.send();
 }	
-function cardSearch2(string)
+function cardSearch2(string, id)
 {
 
-	document.getElementById("myCollection").innerHTML="";
+	document.getElementById(id).innerHTML="";
 	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
 	}else{// code for IE6, IE5
@@ -164,7 +187,7 @@ function cardSearch2(string)
 	}
 newHTML+="</table>";
 
-document.getElementById("myCollection").innerHTML = newHTML;
+document.getElementById(id).innerHTML = newHTML;
 
 //technically the end of cardSearch2 function;
 
@@ -195,9 +218,32 @@ function storeCard(str1){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
 		{		  
 			alert(xmlhttp.responseText);
+			loadCollectionCards();
 		}
 	  }
 	  xmlhttp.open("GET","storecard.php?q="+str,true);
+	  xmlhttp.send();
+}
+function storeWishCard(str1){
+	var str = decodeURIComponent(str1);
+	  if (str=="") {
+		document.getElementById("txtHint").innerHTML="";
+		return;
+	  } 
+	  if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	  } else { // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+		{		  
+			alert(xmlhttp.responseText);
+			loadWishlistCards();
+		}
+	  }
+	  xmlhttp.open("GET","storewishcard.php?q="+str,true);
 	  xmlhttp.send();
 }
   function preview(string){
@@ -285,9 +331,14 @@ function storeCard(str1){
 				newHTML+="\""+encodeURIComponent(prev)+"\"";
 				newHTML+=")>preview</button></div>";
 				
-				newHTML+="<div style=\"float:bottom;\"><button type=\"button\" class=\"btn btn-default btn-xs\" onclick=storeCard(";
+				newHTML+="<div style=\"float:bottom;\">";
+				newHTML+="<button type=\"button\" class=\"btn btn-default btn-xs\" onclick=storeCard(";
 				newHTML+="\""+encodeURIComponent(cname)+"\"";
-				newHTML+=")>Add</button></div>";
+				newHTML+=")>Add to Collection</button>";
+				newHTML+="<button type=\"button\" class=\"btn btn-default btn-xs\" onclick=storeWishCard(";
+				newHTML+="\""+encodeURIComponent(cname)+"\"";
+				newHTML+=")>Add to Wishlist</button>";
+				newHTML+="</div>";
 				newHTML+="</td></tr></div>";
  				continue;
 				
@@ -492,25 +543,24 @@ function storeCard(str1){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">TopDeck Traders</a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" height="40" width="400"></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="myMessages.php"><span class="glyphicon glyphicon-envelope"></span> Mail </a></li>
+            <li><a href="myProfile.php"><span class="glyphicon glyphicon-user"></span> Profile   &nbsp; &nbsp;</a></li>
           </ul>
         </div>
       </div>
     </div>
 
 	<div class="masthead">
-        <h3 class="text-muted">TopDeck Traders</h3>
         <ul class="nav nav-justified">
 		  
-          <li class="active"><a href="#">Profile</a></li>
-          <li><a href="#">Search Traders</a></li>
-          <li><a href="#">Search Events</a></li>
-          <li><a href="#">About</a></li>
+          <li class="active"><a href="profile.php">My Binder</a></li>
+          <li><a href="searchplayers.php">Search Traders</a></li>
+          <li><a href="searchevents.php">Search Events</a></li>
+          <li><a href="about.php">About</a></li>
         </ul>
     </div>
 	
@@ -522,14 +572,14 @@ function storeCard(str1){
 				<button type="button" style="float:left;" class="btn btn-default " onclick=toggle_visibility("myCollection")>My Collection</button>
 				<button type="button" style="float:right;"class="btn btn-default " onclick=toggle_visibility("myWishlist")>My Wishlist</button>
 				</br>
-				<div class="leftSearch well" id="leftSquare">
-					
+				<div class="leftSearch well well-sm" style="text-align:center; font-size:200%;" id="leftSquare">
+					Collection
 					</div>
 				<div id="myCollection" class="leftPanel">
 				
 				</div>
 				
-				<div id="myWishlist" class="leftPanel">
+				<div id="myWishlist" class="leftPanel" style="display:none;">
 				
 				
 				</div>

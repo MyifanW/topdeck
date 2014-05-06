@@ -1,18 +1,14 @@
 <?php
+$q = strval($_GET['q']);
+
 $con = mysqli_connect('localhost','root','','434_db');
 // Check connection
 if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$result = mysqli_query($con,"SELECT * from collections order by card;");
+mysqli_query($con,"INSERT into events values('joe', '".$q."')");
 
-while($row = mysqli_fetch_array($result)) 
-{
-	echo $row['card'];
-	echo ";";
-}
-
-
+echo "INSERT into events values('joe', '".$q."')";
 mysqli_close($con);
 ?>

@@ -100,70 +100,19 @@
 	<div class="row well">
 		<div class="col-md-2">
     	    <ul class="nav nav-pills nav-stacked well">
-              <li class="active"><a href="myProfile.php"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+              <li><a href="myProfile.php"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
               <li><a href="myMessages.php"><i class="glyphicon glyphicon-envelope"></i> Mail</a></li>
-              <li><a href="myEvents.php"><i class="glyphicon glyphicon-map-marker"></i> Events</a></li>
+              <li class="active"><a href="myEvents.php"><i class="glyphicon glyphicon-map-marker"></i> Events</a></li>
               <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
               <li><a href="#"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
             </ul>
         </div>
-        <div class="col-md-10">
-                <div class="panel">
-                    <img class="pic img-circle" src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg" alt="You look Beautiful">
-                    <div class="name"><small>Joe Doe</small></div>
-                </div>
-                
-    <br><br><br>
-    <div class="container-fluid well">
-		<div class="table-responsive" id = "personalInfo">
-            <table class="table table-hover table-striped">
+		<div class="col-md-10">
+			<div class="container-fluid well" id="events_attend">
 				
-				<tr>
-					<td style="width:10%">
-						Name: 
-					</td>
-					<td>
-						 Joe Doe
-					</td>
-				</tr>
-				<tr>
-					<td style="width:10%">
-						Rating: 
-					</td>
-					<td>
-						 <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
-					</td>
-				</tr>
-				<tr>
-					<td style="width:10%">
-						Location: 
-					</td>
-					<td>
-						 AnnArbor
-					</td>
-				</tr>
-				<tr>
-					<td style="width:10%">
-						Contact: 
-					</td>
-					<td>
-						 JoeDoe@Gmail.com
-					</td>
-				</tr>
-				<tr>
-					<td style="width:10%">
-						About: 
-					</td>
-					<td>
-						 Joe Doe is Joe, doe
-					</td>
-				</tr>
-				
-			</table>
-    </div>
-    </div>
-        
-    </div>
+			</div>
+			
+		</div>
 
 	</div>
     

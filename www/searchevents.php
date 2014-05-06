@@ -48,12 +48,11 @@
 	
 	function storeEvent(str1){
 	var str = decodeURIComponent(str1);
-	 alert(str);
+	 
 	  if (str=="") {
 		document.getElementById("txtHint").innerHTML="";
 		return;
 	  } 
-	  alert(str);
 	  if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -63,10 +62,10 @@
 	  xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
 	 {
-		  document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+		  alert(xmlhttp.responseText);
 		}
 	  }
-	  xmlhttp.open("GET","storeEvent.php?q="+str,true);
+	  xmlhttp.open("GET","storeEvents.php?q="+str,true);
 	  xmlhttp.send();
 	}
 	
@@ -110,11 +109,10 @@ function eventSearch(){
 				newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 				newString += "<td><a href="+urlString2+"><img src="+urlString+" alt=\"\"></a></td></tr>";
 				newString += "</table>";
-				newString += "<br><br>";
 				
 				// does button?
 				newString += "<div style=\"float:bottom;\"><button type=\"button\" onclick=storeEvent(";
-				newString += "\""+encodeURIComponent(eventName)+"\"";
+				newString += "\""+encodeURIComponent(eventName+";"+eventType)+"\"";
 				newString += ")>Add to My Events</button></div>";
 				newString += "</td></tr></div>";
 			}
@@ -140,8 +138,8 @@ function eventSearch(){
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">My Binder</a></li>
+            <li><a href="myMessages.php"><span class="glyphicon glyphicon-envelope"></span> Mail </a></li>
+            <li><a href="myProfile.php"><span class="glyphicon glyphicon-user"></span> Profile   &nbsp; &nbsp;</a></li>
           </ul>
         </div>
       </div>
@@ -150,13 +148,12 @@ function eventSearch(){
 	<div class="masthead">
         <ul class="nav nav-justified">
 		  
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Search Traders</a></li>
-          <li class="active"><a href="#">Search Events</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="profile.php">My Binder</a></li>
+          <li><a href="searchplayers.php">Search Traders</a></li>
+          <li class="active"><a href="searchevents.php">Search Events</a></li>
+          <li><a href="about.php">About</a></li>
         </ul>
     </div>
-	
 	
 <body>
 	<div class="mini-layout fluid">

@@ -5,7 +5,8 @@
 	var blah = "Carrier Pigeons;Exile;Inheritance;";
 	
 	
-	function cardSearch(string){
+	function cardSearch(string)
+	{
  
 	document.getElementById("test").innerHTML="";
  	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari

@@ -543,7 +543,7 @@ function storeWishCard(str1){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" height="40" width="400"></a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" ></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

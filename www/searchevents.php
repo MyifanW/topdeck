@@ -90,7 +90,7 @@ function eventSearch(){
 			var eventType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
 			var eventFormat = x[i].getElementsByTagName("format")[0].childNodes[0].nodeValue;
 			var eventName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-			if(type == eventType && format == eventFormat && name == eventName){
+			if((type == eventType || type == "None") && (format == eventFormat || format == "None") && (name == eventName || name == "")){
 				newString += "<table>";
 				var urlString = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic")+"\"";
 				var urlString2 = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic2")+"\"";
@@ -104,6 +104,7 @@ function eventSearch(){
 				var date_start = x[i].getElementsByTagName("dateStart")[0].childNodes[0].nodeValue;
 				var time_start = x[i].getElementsByTagName("timeStart")[0].childNodes[0].nodeValue;
 				var description = x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+				var tourn_ID = x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
 				newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 				newString += "<td><b>Location</b><br>"+eventName+"<br>"+address+"<br>"+city+", "+state+" "+zip;
 				newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
@@ -112,7 +113,7 @@ function eventSearch(){
 				
 				// does button?
 				newString += "<div style=\"float:bottom;\"><button type=\"button\" onclick=storeEvent(";
-				newString += "\""+encodeURIComponent(eventName+";"+eventType)+"\"";
+				newString += "\""+encodeURIComponent(tourn_ID)+"\"";
 				newString += ")>Add to My Events</button></div>";
 				newString += "</td></tr></div>";
 			}
@@ -134,7 +135,7 @@ function eventSearch(){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" ></a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK"></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

@@ -61,11 +61,83 @@
         }
         $( document ).ready(function() {
           var iframe_height = parseInt($('html').height()); 
-          window.parent.postMessage( iframe_height, 'http://bootsnipp.com');
+          window.parent.postMessage( iframe_height, 'http://localhost');
         });
+	  
+	function loadEvents(){
+	  if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	  } else { // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+		{
+			var blah = xmlhttp.responseText;
+		  //document.getElementById("myCollection").innerHTML= blah;
+		  eventDisplay(encodeURIComponent(blah), "events_attend");
+		}
+	  }
+	  xmlhttp.open("GET","loadevents.php",true);
+	  xmlhttp.send();
+	}
+	  
+	function eventDisplay(string, id){
+		document.getElementById(id).innerHTML="";
+		if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}else{// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","events.xml",false);
+		xmlhttp.send();
+		xmlDoc=xmlhttp.responseXML; 
+		var x=xmlDoc.getElementsByTagName("event");
+
+		//var newHTML = "<table class=\"table table-condensed table-hover\">";
+
+		//get name textBox info
+		var nameArr = decodeURIComponent(string);
+		var name = nameArr.split(",");
+		var newString = "";
+		for(j=0;j<name.length-1;j++){
+			if(name[j] != null){
+				for (i=0;i<12;i++){ //change 1000 to however many cards you want to search through in xml 
+					var id_db = x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+					if(name[j] == id_db){
+						var eventType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+						var eventFormat = x[i].getElementsByTagName("format")[0].childNodes[0].nodeValue;
+						var eventName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+						var urlString = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic")+"\"";
+						var urlString2 = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic2")+"\"";
+						var address = x[i].getElementsByTagName("location")[0].getAttribute("address");
+						var city = x[i].getElementsByTagName("location")[0].getAttribute("city");
+						var zip = x[i].getElementsByTagName("location")[0].getAttribute("zip");
+						var state = x[i].getElementsByTagName("location")[0].childNodes[0].nodeValue;
+						var date_start = x[i].getElementsByTagName("dateStart")[0].childNodes[0].nodeValue;
+						var time_start = x[i].getElementsByTagName("timeStart")[0].childNodes[0].nodeValue;
+						var description = x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+						
+						//newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\">";
+						newString = "<table>";
+						
+						newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
+						newString += "<td><b>Location</b><br>"+eventName+"<br>"+address+"<br>"+city+", "+state+" "+zip;
+						newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
+						newString += "<td><a href="+urlString2+"><img src="+urlString+" alt=\"\"></a></td></tr>";
+						newString += "</table>";
+						break;
+					}
+				}
+			}
+		}
+	document.getElementById(id).innerHTML = newString;
+	}
+
     </script>
 </head>
-<body>
+<body onload="loadEvents()">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -76,7 +148,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" height="40" width="400"></a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK"></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -90,7 +162,7 @@
 	<div class="masthead">
         <ul class="nav nav-justified">
 		  
-          <li><a href="myBinder.php">My Binder</a></li>
+          <li><a href="profile.php">My Binder</a></li>
           <li><a href="searchplayers.php">Search Traders</a></li>
           <li><a href="searchevents.php">Search Events</a></li>
           <li><a href="about.php">About</a></li>

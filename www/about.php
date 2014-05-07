@@ -61,24 +61,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <img src="logo.png">
-        </div>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK"></a>
+			</div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="myMessages.php"><span class="glyphicon glyphicon-envelope"></span> Mail </a></li>
+			<li><a href="myProfile.php"><span class="glyphicon glyphicon-user"></span> Profile   &nbsp; &nbsp;</a></li>
           </ul>
         </div>
       </div>
     </div>
 
 	<div class="masthead">
-        <h3 class="text-muted">TopDeck Traders</h3>
+        
         <ul class="nav nav-justified">
 		  
           <li><a href="profile.php">Profile</a></li>
-          <li><a href="#">Search Traders</a></li>
-          <li><a href="#">Search Events</a></li>
+          <li><a href="searchplayers.php">Search Traders</a></li>
+          <li><a href="searchevents.php">Search Events</a></li>
           <li class="active"><a href="about.php">About</a></li>
         </ul>
     </div>

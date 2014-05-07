@@ -1,0 +1,4 @@
+Login:
+Click button (non text) - checks text in boxes but does not transfer to correct page
+Click button (text) - transfers to profile without text check in boxes
+text color matches button color

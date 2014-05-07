@@ -73,6 +73,7 @@
             <li><a href="myProfile.php"><span class="glyphicon glyphicon-user"></span> Profile   &nbsp; &nbsp;</a></li>
           </ul>
         </div>
+		<label>
       </div>
     </div>
 
@@ -98,18 +99,33 @@
             <table class="table table-hover">
 				<tr>
 					<td style="width:50%">Card:</td>
-					<td><input type="text" name="FirstName" value="Blue-eyes white Dragon"></td>		
+					<td><input type="text" name="FirstName" value=""></td>		
 				</tr>
 				<tr>
 					<td style="width:50%">Max Miles Away:</td>
-					<td><input type="text" name="LastName" value="5"></td>	
+					<td><input type="text" name="LastName" value=""></td>	
+				</tr>
+				<tr>
+					<td style="width:50%">Limit search to events I am attending:</td>
+					<td><div class="radio col-md-4"><label>
+						<form action="">
+						<input type="radio" name="sex" value="male">Yes<br>
+						<input type="radio" name="sex" value="female">No
+						</form>
+						</label>
+					</div>
+					</td>	
 				</tr>
 			</table>
 			</div>
 			<button onclick="SearchFun()">Search</button>
 		</div>
-        <div class="search-body">
-			<div class="table-responsive" id = "players" style="display: none">
+		
+		<div class="mini-layout fluid">
+			<div class="mini-layout-sidebar" id = "players" style="display: none">
+
+      <!--  <div class="search-body">
+			<div class="table-responsive" > Replaced these two lines with the two above-->
             <table class="table table-hover">
 				<tr>
 					<td style="width:30%">

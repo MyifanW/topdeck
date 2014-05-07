@@ -89,12 +89,13 @@
 	
 <body>
 	<div class="mini-layout fluid">
+	<div class= "col-lg-3">
 		<div class="mini-layout-sidebar">
 		<!--search players using options-->
 		</br>
 		Search for players with the card you want.
 		</br>
-			<div class="table-responsive">
+		<div class="table-responsive">
             <table class="table table-hover">
 				<tr>
 					<td style="width:50%">Card:</td>
@@ -108,8 +109,10 @@
 			</div>
 			<button onclick="SearchFun()">Search</button>
 		</div>
-        <div class="search-body">
-			<div class="table-responsive" id = "players" style="display: none">
+	</div>
+	<div class = "col-lg-10">
+        <div class="search-body ">
+			<div class="table-responsive" id = "players" style="display: none;">
             <table class="table table-hover">
 				<tr>
 					<td style="width:30%">
@@ -142,6 +145,7 @@
 			</table>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 	

@@ -76,7 +76,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" height="40" width="400"></a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK"></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -90,7 +90,7 @@
 	<div class="masthead">
         <ul class="nav nav-justified">
 		  
-          <li><a href="myBinder.php">My Binder</a></li>
+          <li><a href="profile.php">My Binder</a></li>
           <li><a href="searchplayers.php">Search Traders</a></li>
           <li><a href="searchevents.php">Search Events</a></li>
           <li><a href="about.php">About</a></li>

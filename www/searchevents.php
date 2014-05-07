@@ -104,6 +104,7 @@ function eventSearch(){
 				var date_start = x[i].getElementsByTagName("dateStart")[0].childNodes[0].nodeValue;
 				var time_start = x[i].getElementsByTagName("timeStart")[0].childNodes[0].nodeValue;
 				var description = x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+				var tourn_ID = x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
 				newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 				newString += "<td><b>Location</b><br>"+eventName+"<br>"+address+"<br>"+city+", "+state+" "+zip;
 				newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
@@ -112,7 +113,7 @@ function eventSearch(){
 				
 				// does button?
 				newString += "<div style=\"float:bottom;\"><button type=\"button\" onclick=storeEvent(";
-				newString += "\""+encodeURIComponent(eventName+";"+eventType)+"\"";
+				newString += "\""+encodeURIComponent(tourn_ID)+"\"";
 				newString += ")>Add to My Events</button></div>";
 				newString += "</td></tr></div>";
 			}

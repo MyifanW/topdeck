@@ -61,7 +61,7 @@
         }
         $( document ).ready(function() {
           var iframe_height = parseInt($('html').height()); 
-          window.parent.postMessage( iframe_height, 'http://bootsnipp.com');
+          window.parent.postMessage( iframe_height, 'http://localhost');
         });
 	  
 	function loadEvents(){
@@ -122,8 +122,6 @@
 						//newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\">";
 						newString = "<table>";
 						
-						
-						
 						newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 						newString += "<td><b>Location</b><br>"+eventName+"<br>"+address+"<br>"+city+", "+state+" "+zip;
 						newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
@@ -134,7 +132,7 @@
 				}
 			}
 		}
-	document.getElementById(id).innerHTML = newHTML;
+	document.getElementById(id).innerHTML = newString;
 	}
 
     </script>

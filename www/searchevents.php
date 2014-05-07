@@ -90,7 +90,7 @@ function eventSearch(){
 			var eventType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
 			var eventFormat = x[i].getElementsByTagName("format")[0].childNodes[0].nodeValue;
 			var eventName = x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-			if(type == eventType && format == eventFormat && name == eventName){
+			if((type == eventType || type == "None") && (format == eventFormat || format == "None") && (name == eventName || name == "")){
 				newString += "<table>";
 				var urlString = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic")+"\"";
 				var urlString2 = "\""+x[i].getElementsByTagName("location")[0].getAttribute("mapPic2")+"\"";
@@ -134,7 +134,7 @@ function eventSearch(){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK" ></a>
+          <a class="navbar-brand" href="#"><img src="logo.png" alt="TOPDECK"></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

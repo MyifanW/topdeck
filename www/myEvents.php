@@ -50,10 +50,7 @@
  background-color:black;
  color:white;
 }    </style>
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        window.alert = function(){};
         var defaultCSS = document.getElementById('bootstrap-css');
         function changeCSS(css){
             if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
@@ -84,6 +81,7 @@
 	}
 	  
 	function eventDisplay(string, id){
+		alert(id + "why");
 		document.getElementById(id).innerHTML="";
 		if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp=new XMLHttpRequest();
@@ -94,16 +92,21 @@
 		xmlhttp.send();
 		xmlDoc=xmlhttp.responseXML; 
 		var x=xmlDoc.getElementsByTagName("event");
-
+		
+		alert("why");
 		//var newHTML = "<table class=\"table table-condensed table-hover\">";
 
 		//get name textBox info
 		var nameArr = decodeURIComponent(string);
 		var name = nameArr.split(",");
 		var newString = "";
-		for(j=0;j<name.length-1;j++){
-			if(name[j] != null){
-				for (i=0;i<12;i++){ //change 1000 to however many cards you want to search through in xml 
+		for(j=0;j<name.length-1;j++)
+		{
+			if(name[j] != null)
+			{
+				//alert("anything");
+				for (i=0;i<12;i++)
+				{ //change 1000 to however many cards you want to search through in xml 
 					var id_db = x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
 					if(name[j] == id_db){
 						var eventType = x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
@@ -120,18 +123,20 @@
 						var description = x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
 						
 						//newHTML+="<tr><td align=\"center\">"+"<div id=\""+cname+"\">";
-						newString = "<table>";
+						newString += "<table>";
 						
 						newString += "<tr><td><b>Type: </b>"+eventType+"&nbsp&nbsp<br><b>Format:</b> "+eventFormat+"<br>Date: "+date_start+"<br>Time: "+time_start+"<br>Description: "+description+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 						newString += "<td><b>Location</b><br>"+eventName+"<br>"+address+"<br>"+city+", "+state+" "+zip;
 						newString += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>";
 						newString += "<td><a href="+urlString2+"><img src="+urlString+" alt=\"\"></a></td></tr>";
 						newString += "</table>";
+						alert(newString);
 						break;
 					}
 				}
 			}
 		}
+	alert(newString);
 	document.getElementById(id).innerHTML = newString;
 	}
 

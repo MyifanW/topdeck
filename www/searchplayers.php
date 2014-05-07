@@ -110,7 +110,7 @@
 			<button onclick="SearchFun()">Search</button>
 		</div>
 	</div>
-	<div class = "col-lg-10">
+	<div class = "col-lg-9">
         <div class="search-body ">
 			<div class="table-responsive" id = "players" style="display: none;">
             <table class="table table-hover">

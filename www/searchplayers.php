@@ -73,7 +73,7 @@
             <li><a href="myProfile.php"><span class="glyphicon glyphicon-user"></span> Profile   &nbsp; &nbsp;</a></li>
           </ul>
         </div>
-		<label>
+		
       </div>
     </div>
 

@@ -72,6 +72,7 @@
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) 
 		{
 			var blah = xmlhttp.responseText;
+			alert(blah);
 		  //document.getElementById("myCollection").innerHTML= blah;
 		  eventDisplay(encodeURIComponent(blah), "events_attend");
 		}
@@ -81,7 +82,6 @@
 	}
 	  
 	function eventDisplay(string, id){
-		alert(id + "why");
 		document.getElementById(id).innerHTML="";
 		if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp=new XMLHttpRequest();
@@ -92,19 +92,18 @@
 		xmlhttp.send();
 		xmlDoc=xmlhttp.responseXML; 
 		var x=xmlDoc.getElementsByTagName("event");
-		
-		alert("why");
-		//var newHTML = "<table class=\"table table-condensed table-hover\">";
 
 		//get name textBox info
 		var nameArr = decodeURIComponent(string);
 		var name = nameArr.split(",");
 		var newString = "";
+		alert(name);
 		for(j=0;j<name.length-1;j++)
 		{
+		alert("in");
 			if(name[j] != null)
 			{
-				//alert("anything");
+				alert(name[j]);
 				for (i=0;i<12;i++)
 				{ //change 1000 to however many cards you want to search through in xml 
 					var id_db = x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;

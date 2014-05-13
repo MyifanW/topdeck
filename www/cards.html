@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","cards.xml",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML; 
+
+document.write("<table border='1'>");
+var x=xmlDoc.getElementsByTagName("card");
+var color1 = "R";
+var name1 = null; //Ardent Plea
+var type1 = "Land";
+var manacost1 = null;
+function colorSort(color){
+	for (i=0;i<10000;i++){ 
+		var el = x[i].getElementsByTagName("color")[0];
+		if (el == null) {
+			if(color == "colorless"){
+			var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+			document.write("<tr><td>");
+			document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+			document.write("</td><td>");
+			document.write("<img src="+urlString+" alt=\"\">");
+			document.write("</td></tr>");
+			}
+		}else {
+			if(color == x[i].getElementsByTagName("color")[0].childNodes[0].nodeValue){
+				el = x[i].getElementsByTagName("color")[1];
+				if (el == null) {
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				}else {				
+					//it's multicolored do nothing
+				}
+			}
+		}
+		
+		
+		
+	
+	}
+}
+
+function nameSort(name){
+	for (i=0;i<10000;i++){ 
+		if(name == x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue){
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				
+		}	
+	}
+}
+
+function manaCostSort(manaCost){
+	for (i=0;i<10000;i++){ 
+		if(manaCost == x[i].getElementsByTagName("manacost")[0].childNodes[0].nodeValue){
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				
+		}	
+	}
+}
+
+function typeSort(type){
+	for (i=0;i<10000;i++){ 
+		if(type == x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue){
+					var urlString = "\""+x[i].getElementsByTagName("set")[0].getAttribute("picURL")+"\"";
+					document.write("<tr><td>");
+					document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+					document.write("</td><td>");
+					document.write("<img src="+urlString+" alt=\"\">");
+					document.write("</td></tr>");
+				
+		}	
+	}
+}
+
+if(color1 == null){
+	if(name1 == null){
+		if(manacost1 == null){
+			if(type1 == null){
+			
+			}else{
+				typeSort(type1);
+			}
+		}else{
+			manaCostSort(manacost1);
+		}
+
+	}else{
+		nameSort(name1);
+	}
+}else{
+	colorSort(color1);
+}
+colorSort(color);
+document.write("</table>");
+</script>
+</body>
+</html>
